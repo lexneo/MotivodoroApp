@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/alfa_slab_one</item>
+        <item>@font/candal</item>
+        <item>@font/lemon</item>
+        <item>@font/lemonada_light</item>
+        <item>@font/lemonada_semibold</item>
+        <item>@font/life_savers</item>
+        <item>@font/unlock</item>
+    </array>
+</resources>

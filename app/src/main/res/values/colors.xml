@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="timerColor">#00FF88</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="colorAccent">#FFE600</color>
+
+    <color name="primaryColor">#344955</color>
+
+    <color name="primaryLightColor">#5f7481</color>
+
+    <color name="primaryDarkColor">#0b222c</color>
+
+    <color name="secondaryColor">#f9aa33</color>
+
+    <color name="secondaryLightColor">#ffdc65</color>
+
+    <color name="secondaryDarkColor">#c17b00</color>
+
+    <color name="primaryTextColor">#ffffff</color>
+
+    <color name="secondaryTextColor">#000000</color>
+
+    //project colors
+
+    <color name="project1color">#FF8A80</color>
+    <color name="project2color">#F44336</color>
+    <color name="project3color">#FF00FF</color>
+
+    <color name="project4color">#00FF00</color>
+    <color name="project5color">#E91E63</color>
+    <color name="project6color">#880E4F</color>
+
+    <color name="project7color">#EA80FC</color>
+    <color name="project8color">#9C27B0</color>
+    <color name="project9color">#4A148C</color>
+
+    <color name="project10color">#00E5FF</color>
+    <color name="project11color">#76FF03</color>
+    <color name="project12color">#E3CCFF</color>
+
+    <color name="project13color">#00BFA5</color>
+    <color name="project14color">#FFFF8D</color>
+    <color name="project15color">#200B00</color>
+
+    <color name="project16color">#E4FF00</color>
+    <color name="project17color">#7195FF</color>
+    <color name="project18color">#E46624</color>
+
+    <color name="project19color">#00EC91</color>
+    <color name="project20color">#FFD700</color>
+    <color name="project21color">#7E7E7E</color>
+
+
+
+
+
+</resources>

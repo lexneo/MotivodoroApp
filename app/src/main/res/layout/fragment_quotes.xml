@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.QuotesFragment"
+    android:padding="10dp">
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/toggleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/quote_card_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:singleSelection="true"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/button1"
+            style="?attr/materialButtonOutlinedStyle"
+            android:textColor="@color/secondaryColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="unlocked" />
+
+        <Button
+            android:id="@+id/button2"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/secondaryColor"
+            android:text="favorites" />
+
+
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/quote_card_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:cardBackgroundColor="@color/primaryColor"
+        app:cardCornerRadius="20dp"
+
+        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.38"
+        app:layout_constraintWidth_percent="0.9">
+
+        <ImageButton
+            android:id="@+id/favorite_image_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="right|top"
+            android:backgroundTint="#0003DAC5"
+            android:contentDescription="@string/quote_favorite_image_button_text"
+            android:minHeight="48dp"
+            android:src="@drawable/ic_baseline_favorite_24" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/primaryColor"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/quote_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/life_savers"
+                android:text="@string/first_quote"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/quote_author_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/lemonada_semibold"
+                android:text="@string/author_name"
+                android:textSize="24sp" />
+
+
+        </LinearLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <Button
+        android:id="@+id/prev_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/prev_text"
+        android:textColor="@color/secondaryColor"
+        app:cornerRadius="15dp"
+        android:backgroundTint="@color/primaryLightColor"
+
+        app:strokeColor="@color/secondaryColor"
+        app:strokeWidth="3dp"
+
+        android:drawableLeft="@drawable/ic_baseline_navigate_before_24"
+        app:layout_constraintEnd_toEndOf="@+id/quote_card_view"
+        app:layout_constraintTop_toBottomOf="@+id/quote_card_view" />
+
+    <Button
+        android:id="@+id/next_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next_text"
+        android:textColor="@color/secondaryColor"
+        app:cornerRadius="15dp"
+        android:backgroundTint="@color/primaryLightColor"
+
+        app:strokeColor="@color/secondaryColor"
+        app:strokeWidth="3dp"
+        android:drawableRight="@drawable/ic_baseline_navigate_next_24"
+        app:layout_constraintEnd_toEndOf="@+id/prev_button"
+        app:layout_constraintTop_toBottomOf="@+id/prev_button" />
+
+    <!-- <ImageButton
+         android:id="@+id/next_quote"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:backgroundTint="@color/colorAccent"
+         android:contentDescription="@string/quote_favorite_image_button_text"
+         android:minHeight="48dp"
+
+         android:src="@drawable/ic_baseline_navigate_next_24"
+         app:layout_constraintEnd_toEndOf="@+id/quote_card_view"
+         app:layout_constraintHorizontal_bias="0.55"
+         app:layout_constraintStart_toStartOf="@+id/quote_card_view"
+         app:layout_constraintTop_toBottomOf="@id/quote_card_view" />
+
+     <ImageButton
+         android:id="@+id/prev_quote"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+
+         android:layout_gravity="bottom|right"
+         android:backgroundTint="#0003DAC5"
+         android:contentDescription="@string/quote_favorite_image_button_text"
+         android:minHeight="48dp"
+         android:src="@drawable/ic_baseline_navigate_before_24"
+         app:layout_constraintBottom_toBottomOf="@+id/next_quote"
+         app:layout_constraintEnd_toStartOf="@+id/next_quote"
+         app:layout_constraintTop_toTopOf="@+id/next_quote" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

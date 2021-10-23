@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.lexneoapps.motivodoroapp.ui.StartFragment"
+        android:label="StartFragment"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_createProjectFragment"
+            app:destination="@id/createProjectFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_timerFragment"
+            app:destination="@id/timerFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/timerFragment"
+        android:name="com.lexneoapps.motivodoroapp.ui.TimerFragment"
+        android:label="fragment_timer"
+        tools:layout="@layout/fragment_timer" />
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.lexneoapps.motivodoroapp.ui.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" >
+        <action
+            android:id="@+id/action_historyFragment_to_editHistoryRecordFragment"
+            app:destination="@id/editHistoryRecordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createProjectFragment"
+        android:name="com.lexneoapps.motivodoroapp.ui.CreateProjectFragment"
+        android:label="fragment_create_project"
+        tools:layout="@layout/fragment_create_project" />
+    <fragment
+        android:id="@+id/quotesFragment"
+        android:name="com.lexneoapps.motivodoroapp.ui.QuotesFragment"
+        android:label="fragment_quotes"
+        tools:layout="@layout/fragment_quotes" />
+    <fragment
+        android:id="@+id/statisticsFragment"
+        android:name="com.lexneoapps.motivodoroapp.ui.StatisticsFragment"
+        android:label="fragment_statistics"
+        tools:layout="@layout/fragment_statistics" />
+    <fragment
+        android:id="@+id/editHistoryRecordFragment"
+        android:name="com.lexneoapps.motivodoroapp.ui.EditHistoryRecordFragment"
+        android:label="fragment_edit_history_record"
+        tools:layout="@layout/fragment_edit_history_record" />
+</navigation>

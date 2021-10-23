@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.CreateProjectFragment">
+
+
+
+
+    <TextView
+        android:id="@+id/create_project_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lemon"
+        android:text="@string/create_new_project_text"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.19999999" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="30dp"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="@id/create_project_text_view"
+        app:layout_constraintStart_toStartOf="@+id/create_project_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/create_project_text_view"
+        app:layout_constraintWidth_percent="0.8">
+
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ems="10"
+
+
+            android:hint="@string/enter_project_name_text"
+            android:inputType="textPersonName"
+
+            android:textSize="20sp"
+            tools:ignore="Autofill"
+            tools:layout_editor_absoluteX="105dp"
+            tools:layout_editor_absoluteY="609dp" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.chip.ChipGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:chipSpacingHorizontal="10dp"
+        app:chipSpacingVertical="20dp"
+        app:singleSelection="true"
+        app:layout_constraintEnd_toEndOf="@+id/materialCardView"
+        app:layout_constraintStart_toStartOf="@+id/materialCardView"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip1"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            app:chipBackgroundColor="@color/project1color"
+            app:chipCornerRadius="10dp"
+            app:chipStrokeColor="@color/white"
+            />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip2"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            app:chipBackgroundColor="@color/project2color"
+            app:chipCornerRadius="10dp"
+            app:chipStrokeColor="@color/white"
+            />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip3"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            app:chipBackgroundColor="@color/project3color"
+            app:chipCornerRadius="10dp"
+            app:chipStrokeColor="@color/white"
+            />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip4"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            app:chipBackgroundColor="@color/project4color"
+            app:chipCornerRadius="10dp"
+            app:chipStrokeColor="@color/white"
+            />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip5"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            app:chipBackgroundColor="@color/project5color"
+            app:chipCornerRadius="10dp"
+            app:chipStrokeColor="@color/white"
+            />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip6"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            app:chipBackgroundColor="@color/project6color"
+            app:chipCornerRadius="10dp"
+            app:chipStrokeColor="@color/white"
+            />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip7"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            app:chipBackgroundColor="@color/project7color"
+            app:chipCornerRadius="10dp"
+            app:chipStrokeColor="@color/white"
+            />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip8"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            app:chipBackgroundColor="@color/project8color"
+            app:chipCornerRadius="10dp"
+            app:chipStrokeColor="@color/white"
+            />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip9"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            app:chipBackgroundColor="@color/project9color"
+            app:chipCornerRadius="10dp"
+            app:chipStrokeColor="@color/white"
+            />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip10"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            app:chipBackgroundColor="@color/project10color"
+            app:chipCornerRadius="10dp"
+            app:chipStrokeColor="@color/white"
+            />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip11"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            app:chipBackgroundColor="@color/project11color"
+            app:chipCornerRadius="10dp"
+            app:chipStrokeColor="@color/white"
+            />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip12"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            app:chipBackgroundColor="@color/project12color"
+            app:chipCornerRadius="10dp"
+            app:chipStrokeColor="@color/white"
+            />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip13"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            app:chipBackgroundColor="@color/project13color"
+            app:chipCornerRadius="10dp"
+            app:chipStrokeColor="@color/white"
+            />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip14"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            app:chipBackgroundColor="@color/project14color"
+            app:chipCornerRadius="10dp"
+            app:chipStrokeColor="@color/white"
+            />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip15"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            app:chipBackgroundColor="@color/project15color"
+            app:chipCornerRadius="10dp"
+            app:chipStrokeColor="@color/white"
+            />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip16"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            app:chipBackgroundColor="@color/project16color"
+            app:chipCornerRadius="10dp"
+            app:chipStrokeColor="@color/white"
+            />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip17"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            app:chipBackgroundColor="@color/project17color"
+            app:chipCornerRadius="10dp"
+            app:chipStrokeColor="@color/white"
+            />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip18"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            app:chipBackgroundColor="@color/project18color"
+            app:chipCornerRadius="10dp"
+            app:chipStrokeColor="@color/white"
+            />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip19"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            app:chipBackgroundColor="@color/project19color"
+            app:chipCornerRadius="10dp"
+            app:chipStrokeColor="@color/white"
+            />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip20"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            app:chipBackgroundColor="@color/project20color"
+            app:chipCornerRadius="10dp"
+            app:chipStrokeColor="@color/white"
+            />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip21"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            app:chipBackgroundColor="@color/project21color"
+            app:chipCornerRadius="10dp"
+            app:chipStrokeColor="@color/white"
+            />
+
+    </com.google.android.material.chip.ChipGroup>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

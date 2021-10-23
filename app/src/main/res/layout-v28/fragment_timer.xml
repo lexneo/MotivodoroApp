@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.TimerFragment">
+
+
+    <androidx.constraintlayout.widget.Group
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="timer_card_view2,timer_card_view1,timer_card_view3,button" />
+
+    <androidx.constraintlayout.widget.Group
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:constraint_referenced_ids="play_image_button,pause_image_button,stop_image_button,quote_card_view,linearProgressIndicator" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lemon"
+        android:text="Project name"
+
+        android:textAppearance="@style/TextAppearance.Material3.HeadlineLarge"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/timer_card_view1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/teal_200"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="12dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:rippleColor="#F3DD1B">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:padding="10dp">
+
+
+            <TextView
+                android:id="@+id/countdown_timer_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp"
+                android:text="Countdown timer"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/activity_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ACTIVITY"
+                app:layout_constraintEnd_toStartOf="@+id/pause_text_view"
+                app:layout_constraintHorizontal_bias="0.49"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/countdown_timer_text_view" />
+
+            <TextView
+                android:id="@+id/activity_time_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="25min"
+                app:layout_constraintStart_toStartOf="@+id/activity_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/activity_text_view" />
+
+            <TextView
+                android:id="@+id/pause_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="PAUSE"
+                app:layout_constraintEnd_toStartOf="@+id/repeat_text_view"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/activity_text_view"
+                app:layout_constraintTop_toBottomOf="@id/countdown_timer_text_view"
+                tools:layout_editor_absoluteY="45dp" />
+
+            <TextView
+                android:id="@+id/pause_time_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="25min"
+
+                app:layout_constraintStart_toStartOf="@+id/pause_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/pause_text_view" />
+
+            <TextView
+                android:id="@+id/repeat_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="REPEAT"
+
+                app:layout_constraintEnd_toStartOf="@+id/play_button"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/pause_text_view"
+                app:layout_constraintTop_toBottomOf="@id/countdown_timer_text_view"
+                tools:layout_editor_absoluteY="45dp" />
+
+            <TextView
+                android:id="@+id/repeat_time_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                app:layout_constraintEnd_toEndOf="@+id/repeat_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/repeat_text_view" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/play_button"
+                style="@style/Widget.MaterialComponents.Button.Icon"
+                android:layout_width="wrap_content"
+
+
+                android:layout_height="wrap_content"
+                android:backgroundTint="#1ADDB6"
+
+
+                android:elevation="10dp"
+                android:maxWidth="30dp"
+                app:cornerRadius="10dp"
+                app:icon="@drawable/ic_baseline_play_arrow_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/repeat_text_view"
+                app:layout_constraintTop_toBottomOf="@id/countdown_timer_text_view"
+                app:rippleColor="#BF2929"
+                app:strokeColor="@color/black"
+                app:strokeWidth="3dp" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/timer_card_view2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple_200"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="12dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/timer_card_view1"
+        app:rippleColor="#F3DD1B">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/countdown_timer_text_view2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp"
+                android:text="Countdown timer"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/activity_text_view2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ACTIVITY"
+                app:layout_constraintEnd_toStartOf="@+id/pause_text_view2"
+                app:layout_constraintHorizontal_bias="0.49"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/countdown_timer_text_view2" />
+
+            <TextView
+                android:id="@+id/activity_time_text_view2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="25min"
+                app:layout_constraintStart_toStartOf="@+id/activity_text_view2"
+                app:layout_constraintTop_toBottomOf="@+id/activity_text_view2" />
+
+            <TextView
+                android:id="@+id/pause_text_view2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="PAUSE"
+                app:layout_constraintEnd_toStartOf="@+id/repeat_text_view2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/activity_text_view2"
+                app:layout_constraintTop_toBottomOf="@id/countdown_timer_text_view2"
+                tools:layout_editor_absoluteY="45dp" />
+
+            <TextView
+                android:id="@+id/pause_time_text_view2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="25min"
+
+                app:layout_constraintStart_toStartOf="@+id/pause_text_view2"
+                app:layout_constraintTop_toBottomOf="@+id/pause_text_view2" />
+
+            <TextView
+                android:id="@+id/repeat_text_view2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="REPEAT"
+
+                app:layout_constraintEnd_toStartOf="@+id/play_button2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/pause_text_view2"
+                app:layout_constraintTop_toBottomOf="@id/countdown_timer_text_view2"
+                tools:layout_editor_absoluteY="45dp" />
+
+            <TextView
+                android:id="@+id/repeat_time_text_view2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                app:layout_constraintEnd_toEndOf="@+id/repeat_text_view2"
+                app:layout_constraintTop_toBottomOf="@+id/repeat_text_view2" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/play_button2"
+                style="@style/Widget.MaterialComponents.Button.Icon"
+                android:layout_width="wrap_content"
+
+
+                android:layout_height="wrap_content"
+                android:backgroundTint="#1ADDB6"
+
+
+                android:elevation="10dp"
+                android:maxWidth="30dp"
+                app:cornerRadius="10dp"
+                app:icon="@drawable/ic_baseline_play_arrow_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/repeat_text_view2"
+                app:layout_constraintTop_toBottomOf="@id/countdown_timer_text_view2"
+                app:rippleColor="#BF2929"
+                app:strokeColor="@color/black"
+                app:strokeWidth="3dp" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/timer_card_view3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple_200"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="12dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/timer_card_view2"
+        app:rippleColor="#F3DD1B">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/countdown_timer_text_view3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp"
+                android:text="Countdown timer"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/activity_text_view3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ACTIVITY"
+                app:layout_constraintEnd_toStartOf="@+id/pause_text_view3"
+                app:layout_constraintHorizontal_bias="0.49"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/countdown_timer_text_view3" />
+
+            <TextView
+                android:id="@+id/activity_time_text_view3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="25min"
+                app:layout_constraintStart_toStartOf="@+id/activity_text_view3"
+                app:layout_constraintTop_toBottomOf="@+id/activity_text_view3" />
+
+            <TextView
+                android:id="@+id/pause_text_view3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="PAUSE"
+                app:layout_constraintEnd_toStartOf="@+id/repeat_text_view3"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/activity_text_view3"
+                app:layout_constraintTop_toBottomOf="@id/countdown_timer_text_view3"
+                tools:layout_editor_absoluteY="45dp" />
+
+            <TextView
+                android:id="@+id/pause_time_text_view3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="25min"
+
+                app:layout_constraintStart_toStartOf="@+id/pause_text_view3"
+                app:layout_constraintTop_toBottomOf="@+id/pause_text_view3" />
+
+            <TextView
+                android:id="@+id/repeat_text_view3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="REPEAT"
+
+                app:layout_constraintEnd_toStartOf="@+id/play_button3"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/pause_text_view3"
+                app:layout_constraintTop_toBottomOf="@id/countdown_timer_text_view3"
+                tools:layout_editor_absoluteY="45dp" />
+
+            <TextView
+                android:id="@+id/repeat_time_text_view3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                app:layout_constraintEnd_toEndOf="@+id/repeat_text_view3"
+                app:layout_constraintTop_toBottomOf="@+id/repeat_text_view3" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/play_button3"
+                style="@style/Widget.MaterialComponents.Button.Icon"
+                android:layout_width="wrap_content"
+
+
+                android:layout_height="wrap_content"
+                android:backgroundTint="#1ADDB6"
+
+
+                android:elevation="10dp"
+                android:maxWidth="30dp"
+                app:cornerRadius="10dp"
+                app:icon="@drawable/ic_baseline_play_arrow_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/repeat_text_view3"
+                app:layout_constraintTop_toBottomOf="@id/countdown_timer_text_view3"
+                app:rippleColor="#BF2929"
+                app:strokeColor="@color/black"
+                app:strokeWidth="3dp" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:backgroundTint="@color/primaryLightColor"
+        android:text="@string/start_timer_text"
+        android:textColor="@color/colorAccent"
+        app:cornerRadius="15dp"
+        app:layout_constraintEnd_toEndOf="@id/timer_card_view3"
+        app:layout_constraintStart_toStartOf="@+id/timer_card_view3"
+        app:layout_constraintTop_toBottomOf="@+id/timer_card_view3"
+        app:strokeColor="@color/colorAccent"
+        app:strokeWidth="3dp" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/quote_card_view"
+        app:layout_constraintHeight_percent="0.6"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintHorizontal_weight="5"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        android:backgroundTint="@color/primaryColor"
+        android:outlineSpotShadowColor="@color/teal_200"
+
+        app:cardUseCompatPadding="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title">
+
+        <ImageButton
+            android:id="@+id/favorite_image_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="right|bottom"
+            android:backgroundTint="#0003DAC5"
+            android:contentDescription="@string/quote_favorite_image_button_text"
+            android:src="@drawable/ic_baseline_favorite_24" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primaryColor"
+            android:orientation="vertical"
+
+            android:layout_gravity="center"
+
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/quote_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/life_savers"
+                android:text="@string/first_quote"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/quote_author_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/lemonada_semibold"
+                android:text="@string/author_name"
+                android:textSize="24sp" />
+
+
+
+
+
+
+
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+
+        android:id="@+id/linearProgressIndicator"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:outlineProvider="background"
+        android:progress="5"
+        android:visibility="visible"
+        app:indicatorColor="@color/teal_200"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/quote_card_view"
+        app:trackColor="#5C1FC0CF"
+        app:trackCornerRadius="20dp"
+        app:trackThickness="30dp" />
+
+    <ImageButton
+        android:id="@+id/pause_image_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/teal_200"
+        android:contentDescription="@string/pause_countdown_timer_text"
+        android:src="@drawable/ic_baseline_pause_24"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/stop_image_button"
+        app:layout_constraintEnd_toStartOf="@+id/stop_image_button"
+        tools:ignore="DuplicateClickableBoundsCheck" />
+
+    <ImageButton
+        android:id="@+id/stop_image_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:backgroundTint="@color/teal_200"
+        android:contentDescription="@string/stop_countdown_timer_text"
+        android:src="@drawable/ic_baseline_stop_24"
+        app:layout_constraintEnd_toEndOf="@+id/linearProgressIndicator"
+        app:layout_constraintHorizontal_bias="0.66"
+        app:layout_constraintStart_toStartOf="@+id/linearProgressIndicator"
+        app:layout_constraintTop_toBottomOf="@+id/linearProgressIndicator" />
+
+    <ImageButton
+        android:id="@+id/play_image_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/teal_200"
+        android:src="@drawable/ic_baseline_play_arrow_24"
+        android:visibility="gone"
+
+        app:layout_constraintBottom_toBottomOf="@+id/stop_image_button"
+        app:layout_constraintEnd_toStartOf="@+id/stop_image_button"
+        android:contentDescription="@string/turn_on_countdown_timer_text" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
