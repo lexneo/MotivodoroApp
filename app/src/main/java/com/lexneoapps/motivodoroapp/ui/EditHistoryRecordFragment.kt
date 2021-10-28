@@ -11,7 +11,7 @@ import com.lexneoapps.motivodoroapp.databinding.FragmentHistoryBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 
-//@AndroidEntryPoint
+@AndroidEntryPoint
 
 class EditHistoryRecordFragment : Fragment(R.layout.fragment_edit_history_record) {
 

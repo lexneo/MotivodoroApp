@@ -9,7 +9,7 @@ import com.lexneoapps.motivodoroapp.R
 import com.lexneoapps.motivodoroapp.databinding.FragmentQuotesBinding
 import dagger.hilt.android.AndroidEntryPoint
 
-//@AndroidEntryPoint
+@AndroidEntryPoint
 
 class QuotesFragment : Fragment(R.layout.fragment_quotes) {
 

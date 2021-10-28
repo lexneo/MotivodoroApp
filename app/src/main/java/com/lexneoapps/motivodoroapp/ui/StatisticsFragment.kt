@@ -10,7 +10,7 @@ import com.lexneoapps.motivodoroapp.databinding.FragmentStatisticsBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 
-//@AndroidEntryPoint
+@AndroidEntryPoint
 
 class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
 

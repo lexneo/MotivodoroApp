@@ -10,7 +10,7 @@ import com.lexneoapps.motivodoroapp.databinding.FragmentCreateProjectBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 
-//@AndroidEntryPoint
+@AndroidEntryPoint
 
 class CreateProjectFragment : Fragment(R.layout.fragment_create_project) {
 

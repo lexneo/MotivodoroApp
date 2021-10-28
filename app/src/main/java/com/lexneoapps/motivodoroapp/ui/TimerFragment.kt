@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.lexneoapps.motivodoroapp.R
 import com.lexneoapps.motivodoroapp.databinding.FragmentTimerBinding
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
 
 class TimerFragment : Fragment(R.layout.fragment_timer) {
 

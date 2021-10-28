@@ -11,7 +11,7 @@ import com.lexneoapps.motivodoroapp.R
 import com.lexneoapps.motivodoroapp.databinding.FragmentStartBinding
 import dagger.hilt.android.AndroidEntryPoint
 
-//@AndroidEntryPoint
+@AndroidEntryPoint
 class StartFragment : Fragment(R.layout.fragment_start) {
 
     private var _binding: FragmentStartBinding? = null
@@ -36,6 +36,7 @@ class StartFragment : Fragment(R.layout.fragment_start) {
             val action = StartFragmentDirections.actionStartFragmentToCreateProjectFragment()
             findNavController().navigate(action)
         }
+
     }
 
     override fun onDestroyView() {

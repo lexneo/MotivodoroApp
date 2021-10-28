@@ -18,7 +18,7 @@ buildscript {
         hiltAndroidXVersion = '1.0.0'
         hiltVersion = '2.39.1'
         junitVersion = "4.13.2"
-        kotlinVersion = '1.5.30'
+        kotlinVersion = '1.5.31'
         ktxVersion = "1.6.0"
         lifecycleVersion = '2.4.0-rc01'
         archLifeCycleVersion = "1.1.1"
@@ -45,7 +45,7 @@ allprojects {
     repositories {
         google()
         mavenCentral()
-        jcenter() // Warning: this repository is going to shut down soon
+         // Warning: this repository is going to shut down soon
     }
 }
 

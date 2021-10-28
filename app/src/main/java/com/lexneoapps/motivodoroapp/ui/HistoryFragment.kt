@@ -10,7 +10,7 @@ import com.lexneoapps.motivodoroapp.databinding.FragmentHistoryBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 
-//@AndroidEntryPoint
+@AndroidEntryPoint
 
 class HistoryFragment : Fragment(R.layout.fragment_history) {
 
