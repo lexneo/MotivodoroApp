@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.lexneoapps.motivodoroapp.R
 import com.lexneoapps.motivodoroapp.databinding.FragmentStatisticsBinding
+import com.lexneoapps.motivodoroapp.ui.viewmodels.StatsAndQuotesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -15,6 +17,8 @@ import dagger.hilt.android.AndroidEntryPoint
 class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
 
     private var _binding: FragmentStatisticsBinding? = null
+
+    private val viewModel: StatsAndQuotesViewModel by viewModels()
 
     // This property is only valid between onCreateView and
 // onDestroyView.

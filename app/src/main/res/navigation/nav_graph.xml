@@ -36,7 +36,11 @@
         android:id="@+id/createProjectFragment"
         android:name="com.lexneoapps.motivodoroapp.ui.CreateProjectFragment"
         android:label="fragment_create_project"
-        tools:layout="@layout/fragment_create_project" />
+        tools:layout="@layout/fragment_create_project" >
+        <action
+            android:id="@+id/action_createProjectFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
     <fragment
         android:id="@+id/quotesFragment"
         android:name="com.lexneoapps.motivodoroapp.ui.QuotesFragment"

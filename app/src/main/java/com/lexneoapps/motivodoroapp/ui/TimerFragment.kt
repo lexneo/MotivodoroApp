@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.lexneoapps.motivodoroapp.R
 import com.lexneoapps.motivodoroapp.databinding.FragmentTimerBinding
+import com.lexneoapps.motivodoroapp.ui.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -14,6 +16,8 @@ import dagger.hilt.android.AndroidEntryPoint
 class TimerFragment : Fragment(R.layout.fragment_timer) {
 
     private var _binding: FragmentTimerBinding? = null
+
+    private val viewModel: MainViewModel by viewModels()
     // This property is only valid between onCreateView and
 // onDestroyView.
     private val binding get() = _binding!!

@@ -25,7 +25,7 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/materialCardView"
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="75dp"
         android:layout_marginTop="30dp"
         app:cardCornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="@id/create_project_text_view"
@@ -33,266 +33,76 @@
         app:layout_constraintTop_toBottomOf="@+id/create_project_text_view"
         app:layout_constraintWidth_percent="0.8">
 
-        <EditText
-            android:id="@+id/editTextTextPersonName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:ems="10"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/materialLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/editTextTextPersonName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+
+                android:hint="@string/enter_project_name_text"
+                android:inputType="textPersonName"
+
+                android:textSize="20sp"
+                tools:ignore="Autofill" />
+          <!--  <EditText
+                android:id="@+id/editTextTextPersonName2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Name"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />-->
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-            android:hint="@string/enter_project_name_text"
-            android:inputType="textPersonName"
-
-            android:textSize="20sp"
-            tools:ignore="Autofill"
-            tools:layout_editor_absoluteX="105dp"
-            tools:layout_editor_absoluteY="609dp" />
 
     </com.google.android.material.card.MaterialCardView>
 
-    <com.google.android.material.chip.ChipGroup
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="29dp"
+        android:text="Pick a color :"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="@+id/materialCardView"
+        app:layout_constraintStart_toStartOf="@+id/materialCardView"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
+
+    <View
+        android:id="@+id/viewProjectColor"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/circle_shape"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/createBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        app:chipSpacingHorizontal="10dp"
-        app:chipSpacingVertical="20dp"
-        app:singleSelection="true"
-        app:layout_constraintEnd_toEndOf="@+id/materialCardView"
-        app:layout_constraintStart_toStartOf="@+id/materialCardView"
-        app:layout_constraintTop_toBottomOf="@+id/materialCardView">
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip1"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            app:chipBackgroundColor="@color/project1color"
-            app:chipCornerRadius="10dp"
-            app:chipStrokeColor="@color/white"
-            />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip2"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            app:chipBackgroundColor="@color/project2color"
-            app:chipCornerRadius="10dp"
-            app:chipStrokeColor="@color/white"
-            />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip3"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            app:chipBackgroundColor="@color/project3color"
-            app:chipCornerRadius="10dp"
-            app:chipStrokeColor="@color/white"
-            />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip4"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            app:chipBackgroundColor="@color/project4color"
-            app:chipCornerRadius="10dp"
-            app:chipStrokeColor="@color/white"
-            />
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip5"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            app:chipBackgroundColor="@color/project5color"
-            app:chipCornerRadius="10dp"
-            app:chipStrokeColor="@color/white"
-            />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip6"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            app:chipBackgroundColor="@color/project6color"
-            app:chipCornerRadius="10dp"
-            app:chipStrokeColor="@color/white"
-            />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip7"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            app:chipBackgroundColor="@color/project7color"
-            app:chipCornerRadius="10dp"
-            app:chipStrokeColor="@color/white"
-            />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip8"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            app:chipBackgroundColor="@color/project8color"
-            app:chipCornerRadius="10dp"
-            app:chipStrokeColor="@color/white"
-            />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip9"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            app:chipBackgroundColor="@color/project9color"
-            app:chipCornerRadius="10dp"
-            app:chipStrokeColor="@color/white"
-            />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip10"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            app:chipBackgroundColor="@color/project10color"
-            app:chipCornerRadius="10dp"
-            app:chipStrokeColor="@color/white"
-            />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip11"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            app:chipBackgroundColor="@color/project11color"
-            app:chipCornerRadius="10dp"
-            app:chipStrokeColor="@color/white"
-            />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip12"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            app:chipBackgroundColor="@color/project12color"
-            app:chipCornerRadius="10dp"
-            app:chipStrokeColor="@color/white"
-            />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip13"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            app:chipBackgroundColor="@color/project13color"
-            app:chipCornerRadius="10dp"
-            app:chipStrokeColor="@color/white"
-            />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip14"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            app:chipBackgroundColor="@color/project14color"
-            app:chipCornerRadius="10dp"
-            app:chipStrokeColor="@color/white"
-            />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip15"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            app:chipBackgroundColor="@color/project15color"
-            app:chipCornerRadius="10dp"
-            app:chipStrokeColor="@color/white"
-            />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip16"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            app:chipBackgroundColor="@color/project16color"
-            app:chipCornerRadius="10dp"
-            app:chipStrokeColor="@color/white"
-            />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip17"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            app:chipBackgroundColor="@color/project17color"
-            app:chipCornerRadius="10dp"
-            app:chipStrokeColor="@color/white"
-            />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip18"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            app:chipBackgroundColor="@color/project18color"
-            app:chipCornerRadius="10dp"
-            app:chipStrokeColor="@color/white"
-            />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip19"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            app:chipBackgroundColor="@color/project19color"
-            app:chipCornerRadius="10dp"
-            app:chipStrokeColor="@color/white"
-            />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip20"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            app:chipBackgroundColor="@color/project20color"
-            app:chipCornerRadius="10dp"
-            app:chipStrokeColor="@color/white"
-            />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip21"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            app:chipBackgroundColor="@color/project21color"
-            app:chipCornerRadius="10dp"
-            app:chipStrokeColor="@color/white"
-            />
-
-    </com.google.android.material.chip.ChipGroup>
+        android:text="Create"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

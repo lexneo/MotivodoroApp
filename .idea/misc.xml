@@ -4,9 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/drawable/bottom_nav_selector.xml" value="0.403125" />
+        <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/drawable/circle_shape.xml" value="0.403125" />
         <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout-v28/fragment_timer.xml" value="0.21875" />
-        <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout/activity_main.xml" value="0.18819655521783182" />
-        <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout/fragment_create_project.xml" value="0.22" />
+        <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout/fragment_create_project.xml" value="0.33" />
         <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout/fragment_edit_history_record.xml" value="0.33" />
         <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout/fragment_history.xml" value="0.2848731884057971" />
         <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout/fragment_quotes.xml" value="0.33" />
@@ -25,12 +26,5 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
-  </component>
-  <component name="VisualizationToolProject">
-    <option name="state">
-      <ProjectState>
-        <option name="scale" value="0.33" />
-      </ProjectState>
-    </option>
   </component>
 </project>

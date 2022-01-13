@@ -1,20 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/project_card_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="6dp"
+    android:clickable="true"
+    android:focusable="true"
     app:cardUseCompatPadding="true"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="20dp"
-    app:cardBackgroundColor="@color/project1color"
+
     >
 
     <LinearLayout
+        android:id="@+id/linear_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:paddingStart="6dp"
+        android:background="@color/project18color"
         android:orientation="horizontal">
 
         <com.google.android.material.textview.MaterialTextView
@@ -32,7 +38,7 @@
             android:textSize="24sp" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/total_time_text_view"
+            android:id="@+id/current_time_text_view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
@@ -41,7 +47,8 @@
             android:shadowColor="@color/black"
             android:shadowRadius="4"
             android:text="23:45"
-            android:textSize="36sp" />
+            android:textSize="36sp"
+            tools:visibility="invisible" />
 
     </LinearLayout>
 
