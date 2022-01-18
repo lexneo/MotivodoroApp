@@ -1,9 +1,10 @@
 package com.lexneoapps.motivodoroapp.ui
 
+import android.content.res.Configuration
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -16,6 +17,8 @@ import com.lexneoapps.motivodoroapp.data.ProjectDao
 import com.lexneoapps.motivodoroapp.databinding.FragmentStartBinding
 import com.lexneoapps.motivodoroapp.ui.adapters.ProjectAdapter
 import com.lexneoapps.motivodoroapp.ui.viewmodels.MainViewModel
+import com.lexneoapps.motivodoroapp.ui.viewmodels.SortOrder
+import com.lexneoapps.motivodoroapp.util.onQueryTextChanged
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -35,6 +38,7 @@ class StartFragment : Fragment(R.layout.fragment_start) {
     lateinit var projectAdapter: ProjectAdapter
 
     private val viewModel: MainViewModel by viewModels()
+
     // This property is only valid between onCreateView and
 // onDestroyView.
     private val binding get() = _binding!!
@@ -52,34 +56,77 @@ class StartFragment : Fragment(R.layout.fragment_start) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        projectAdapter = ProjectAdapter()
+        setAdapter()
 
-
-
-        lifecycleScope.launch() {
-            projectList = projectDao.listProjects()
-            projectAdapter = ProjectAdapter()
-            binding.recyclerView.adapter = projectAdapter
-            projectAdapter.list = projectList
-
-            Timber.d("onViewCreated: $projectList")
-        }
-/*
-        viewModel.projects.observe(viewLifecycleOwner){
+        viewModel.projects.observe(viewLifecycleOwner) {
             projectAdapter.list = it
-        }*/
+        }
 
-
-        binding.recyclerView.layoutManager = LinearLayoutManager(this.requireContext())
-        binding.recyclerView.setHasFixedSize(true)
-
-        binding.floatingActionButton.setOnClickListener{
+        binding.floatingActionButton.setOnClickListener {
             val action = StartFragmentDirections.actionStartFragmentToCreateProjectFragment()
             findNavController().navigate(action)
         }
 
+        setHasOptionsMenu(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_fragment_start, menu)
+
+        val searchItem = menu.findItem(R.id.action_search)
+        val searchView = searchItem.actionView as SearchView
+
+        searchView.onQueryTextChanged {
+            // update search query
+            viewModel.searchQuery.value = it
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_recently_tracked -> {
+                viewModel.sortOrder.value = SortOrder.BY_RECENT
+                true
+            }
 
 
+            R.id.action_total_time -> {
+                viewModel.sortOrder.value = SortOrder.BY_TOTAL
+                true
+            }
+            R.id.action_sort_by_name -> {
+                viewModel.sortOrder.value = SortOrder.BY_NAME
+                true
+            }
 
+            R.id.action_dark_mode -> {
+                item.isChecked = !item.isChecked
+              /*  if(item.isChecked){
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                }else{
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                }*/
+                true
+            }
+
+            R.id.action_settings ->{
+                TODO()
+
+            }
+            R.id.action_about ->{
+                TODO()
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun setAdapter() = binding.recyclerView.apply {
+        adapter = projectAdapter
+        layoutManager = LinearLayoutManager(this@StartFragment.requireContext())
+        setHasFixedSize(true)
+        Timber.d("adapter set")
 
     }
 

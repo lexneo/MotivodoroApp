@@ -22,7 +22,11 @@
         android:id="@+id/timerFragment"
         android:name="com.lexneoapps.motivodoroapp.ui.TimerFragment"
         android:label="fragment_timer"
-        tools:layout="@layout/fragment_timer" />
+        tools:layout="@layout/fragment_timer" >
+        <argument
+            android:name="projectId"
+            app:argType="integer" />
+    </fragment>
     <fragment
         android:id="@+id/historyFragment"
         android:name="com.lexneoapps.motivodoroapp.ui.HistoryFragment"
