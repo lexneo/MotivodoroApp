@@ -1,7 +1,6 @@
 package com.lexneoapps.motivodoroapp.data
 
 import androidx.room.*
-import com.lexneoapps.motivodoroapp.ui.viewmodels.SortOrder
 import kotlinx.coroutines.flow.Flow
 
 @Dao
