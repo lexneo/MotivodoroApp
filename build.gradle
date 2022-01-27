@@ -14,7 +14,7 @@ buildscript {
         dataStoreVersion = "1.0.0"
         espressoVersion = "3.4.0"
         fragmentVersion = '1.4.0-alpha10'
-        gradleVersion = '4.2.2'
+        gradleVersion = '7.1.0'
         hiltAndroidXVersion = '1.0.0'
         hiltVersion = '2.39.1'
         junitVersion = "4.13.2"
