@@ -1,4 +1,4 @@
-package com.lexneoapps.motivodoroapp.ui
+package com.lexneoapps.motivodoroapp.ui.statistics
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,15 +7,16 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.lexneoapps.motivodoroapp.R
-import com.lexneoapps.motivodoroapp.databinding.FragmentQuotesBinding
+import com.lexneoapps.motivodoroapp.databinding.FragmentStatisticsBinding
 import com.lexneoapps.motivodoroapp.ui.viewmodels.StatsAndQuotesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
+
 @AndroidEntryPoint
 
-class QuotesFragment : Fragment(R.layout.fragment_quotes) {
+class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
 
-    private var _binding: FragmentQuotesBinding? = null
+    private var _binding: FragmentStatisticsBinding? = null
 
     private val viewModel: StatsAndQuotesViewModel by viewModels()
 
@@ -28,7 +29,7 @@ class QuotesFragment : Fragment(R.layout.fragment_quotes) {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentQuotesBinding.inflate(inflater, container, false)
+        _binding = FragmentStatisticsBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
     }

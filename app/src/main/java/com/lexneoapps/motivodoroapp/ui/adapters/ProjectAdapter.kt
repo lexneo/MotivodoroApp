@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.lexneoapps.motivodoroapp.data.Project
+import com.lexneoapps.motivodoroapp.data.project.Project
 import com.lexneoapps.motivodoroapp.databinding.ProjectItemBinding
 
 
@@ -43,10 +43,23 @@ class ProjectAdapter() :
 
         holder.binding.linearLayout.setBackgroundColor(currentProject.color)
         holder.binding.projectNameTextView.text = currentProject.name
+
+
+        holder.binding.root.setOnClickListener {
+            onItemClickListener?.let { click ->
+                click(currentProject)
+            }
+        }
     }
 
     override fun getItemCount(): Int {
         return list.size
+    }
+
+    private var onItemClickListener: ((Project) -> Unit)? = null
+
+    fun setOnItemClickListener(onItemClick: (Project) -> Unit) {
+        this.onItemClickListener = onItemClick
     }
 }
 

@@ -1,4 +1,4 @@
-package com.lexneoapps.motivodoroapp.ui
+package com.lexneoapps.motivodoroapp.app
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

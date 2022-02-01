@@ -1,4 +1,4 @@
-package com.lexneoapps.motivodoroapp.data
+package com.lexneoapps.motivodoroapp.data.record
 
 import androidx.room.*
 import kotlinx.coroutines.flow.Flow

@@ -1,4 +1,4 @@
-package com.lexneoapps.motivodoroapp.data
+package com.lexneoapps.motivodoroapp.data.record
 
 import android.os.Parcelable
 import androidx.room.Entity

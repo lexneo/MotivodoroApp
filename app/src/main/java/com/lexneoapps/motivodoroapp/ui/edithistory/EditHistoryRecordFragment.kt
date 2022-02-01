@@ -1,4 +1,4 @@
-package com.lexneoapps.motivodoroapp.ui
+package com.lexneoapps.motivodoroapp.ui.edithistory
 
 import android.os.Bundle
 import android.view.LayoutInflater

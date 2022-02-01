@@ -1,12 +1,11 @@
-package com.lexneoapps.motivodoroapp
+package com.lexneoapps.motivodoroapp.app
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 
 @HiltAndroidApp
-class MotivodoApplication : Application() {
-
+class MotivodoroApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()

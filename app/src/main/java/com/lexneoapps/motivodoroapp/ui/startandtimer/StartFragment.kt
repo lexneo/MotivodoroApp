@@ -1,4 +1,4 @@
-package com.lexneoapps.motivodoroapp.ui
+package com.lexneoapps.motivodoroapp.ui.startandtimer
 
 import android.os.Bundle
 import android.view.*
@@ -10,8 +10,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lexneoapps.motivodoroapp.R
-import com.lexneoapps.motivodoroapp.data.Project
-import com.lexneoapps.motivodoroapp.data.ProjectDao
+import com.lexneoapps.motivodoroapp.data.project.Project
+import com.lexneoapps.motivodoroapp.data.project.ProjectDao
 import com.lexneoapps.motivodoroapp.data.SortOrder
 import com.lexneoapps.motivodoroapp.databinding.FragmentStartBinding
 import com.lexneoapps.motivodoroapp.ui.adapters.ProjectAdapter
@@ -65,6 +65,12 @@ class StartFragment : Fragment(R.layout.fragment_start) {
             findNavController().navigate(action)
         }
 
+        projectAdapter.setOnItemClickListener {
+            findNavController().navigate(
+                StartFragmentDirections.actionStartFragmentToTimerFragment(it.id)
+            )
+        }
+
         setHasOptionsMenu(true)
     }
 
@@ -80,7 +86,7 @@ class StartFragment : Fragment(R.layout.fragment_start) {
         }
 
         // Set the item state
-        lifecycleScope.launch {
+        viewLifecycleOwner.lifecycleScope.launch {
             val isChecked = viewModel.getUIMode.first()
             val item = menu.findItem(R.id.action_dark_mode)
             item.isChecked = isChecked

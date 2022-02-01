@@ -1,7 +1,7 @@
-package com.lexneoapps.motivodoroapp.data
+package com.lexneoapps.motivodoroapp.data.quote
 
 import androidx.room.*
-import kotlinx.coroutines.flow.Flow
+import com.lexneoapps.motivodoroapp.data.quote.Quote
 
 @Dao
 interface QuoteDao {

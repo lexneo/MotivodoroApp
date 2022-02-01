@@ -1,4 +1,4 @@
-package com.lexneoapps.motivodoroapp.data
+package com.lexneoapps.motivodoroapp.data.project
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

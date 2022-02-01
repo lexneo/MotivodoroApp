@@ -1,10 +1,9 @@
 package com.lexneoapps.motivodoroapp.ui.viewmodels
 
 import androidx.lifecycle.ViewModel
-import com.lexneoapps.motivodoroapp.data.CDTimerDao
-import com.lexneoapps.motivodoroapp.data.ProjectDao
-import com.lexneoapps.motivodoroapp.data.QuoteDao
-import com.lexneoapps.motivodoroapp.data.RecordDao
+import com.lexneoapps.motivodoroapp.data.project.ProjectDao
+import com.lexneoapps.motivodoroapp.data.quote.QuoteDao
+import com.lexneoapps.motivodoroapp.data.record.RecordDao
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

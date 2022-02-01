@@ -3,7 +3,12 @@ package com.lexneoapps.motivodoroapp.ui.viewmodels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.lexneoapps.motivodoroapp.data.*
+import com.lexneoapps.motivodoroapp.data.cdtimer.CDTimerDao
+import com.lexneoapps.motivodoroapp.data.PreferencesManager
+import com.lexneoapps.motivodoroapp.data.SortOrder
+import com.lexneoapps.motivodoroapp.data.project.ProjectDao
+import com.lexneoapps.motivodoroapp.data.quote.QuoteDao
+import com.lexneoapps.motivodoroapp.data.record.RecordDao
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow

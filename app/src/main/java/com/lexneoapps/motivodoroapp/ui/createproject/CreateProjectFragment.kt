@@ -1,4 +1,4 @@
-package com.lexneoapps.motivodoroapp.ui
+package com.lexneoapps.motivodoroapp.ui.createproject
 
 import android.graphics.Color
 import android.os.Bundle
@@ -12,10 +12,11 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.lexneoapps.motivodoroapp.R
-import com.lexneoapps.motivodoroapp.data.Project
-import com.lexneoapps.motivodoroapp.data.ProjectDao
+import com.lexneoapps.motivodoroapp.data.project.Project
+import com.lexneoapps.motivodoroapp.data.project.ProjectDao
 import com.lexneoapps.motivodoroapp.databinding.FragmentCreateProjectBinding
 import com.lexneoapps.motivodoroapp.other.Constants.DEFAULT_PROJECT_COLOR
+import com.lexneoapps.motivodoroapp.ui.ColorPickerDialogFragment
 import com.lexneoapps.motivodoroapp.ui.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch

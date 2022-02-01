@@ -4,6 +4,14 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.lexneoapps.motivodoroapp.data.cdtimer.CDTimer
+import com.lexneoapps.motivodoroapp.data.cdtimer.CDTimerDao
+import com.lexneoapps.motivodoroapp.data.project.Project
+import com.lexneoapps.motivodoroapp.data.project.ProjectDao
+import com.lexneoapps.motivodoroapp.data.quote.Quote
+import com.lexneoapps.motivodoroapp.data.quote.QuoteDao
+import com.lexneoapps.motivodoroapp.data.record.Record
+import com.lexneoapps.motivodoroapp.data.record.RecordDao
 import com.lexneoapps.motivodoroapp.other.Constants.APP_DATABASE_NAME
 
 @Database(
