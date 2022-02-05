@@ -15,13 +15,24 @@ data class Record (
     var startTime: Long = System.currentTimeMillis(),
     var endTime: Long = System.currentTimeMillis(),
     var totalTime: Long = 0L,
-    var projectColor: Int = R.color.primaryColor
+    var projectColor: Int = -30080
 
     ) : Parcelable {
 
-    val startTimeFormatted: String
+    //get date started
+    val startTimeFormattedDate: String
         get() = DateFormat.getDateTimeInstance().format(startTime)
 
-    val endTimeTimeFormatted: String
+    val endTimeTimeFormattedDate: String
         get() = DateFormat.getDateTimeInstance().format(endTime)
+
+    //get time started
+    val startTimeFormattedTime: String
+        get() = DateFormat.getDateTimeInstance().format(startTime)
+
+    val endTimeTimeFormattedTime: String
+        get() = DateFormat.getDateTimeInstance().format(endTime)
+
+
+
 }

@@ -54,7 +54,7 @@
         app:layout_constraintWidth_percent="0.9">
 
         <ImageButton
-            android:id="@+id/favorite_image_button"
+            android:id="@+id/favorited_image_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 

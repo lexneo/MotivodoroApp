@@ -23,10 +23,10 @@ import com.lexneoapps.motivodoroapp.other.Constants.APP_DATABASE_NAME
 )
 abstract class AppDatabase : RoomDatabase() {
 
-        abstract fun projectDao(): ProjectDao
-        abstract fun recordDao(): RecordDao
-        abstract fun quoteDao(): QuoteDao
-        abstract fun cdTimerDao(): CDTimerDao
+    abstract fun projectDao(): ProjectDao
+    abstract fun recordDao(): RecordDao
+    abstract fun quoteDao(): QuoteDao
+    abstract fun cdTimerDao(): CDTimerDao
 
     companion object {
 

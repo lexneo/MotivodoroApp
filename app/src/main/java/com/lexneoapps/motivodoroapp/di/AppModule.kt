@@ -43,4 +43,6 @@ object AppModule {
 
     @Provides
     fun providesQuoteDao(db: AppDatabase) = db.quoteDao()
+
+
 }

@@ -6,22 +6,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.navArgs
 import com.lexneoapps.motivodoroapp.R
-import com.lexneoapps.motivodoroapp.databinding.FragmentTimerBinding
-import com.lexneoapps.motivodoroapp.ui.viewmodels.MainViewModel
+import com.lexneoapps.motivodoroapp.databinding.FragmentProjectBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 
-class TimerFragment : Fragment(R.layout.fragment_timer) {
+class ProjectFragment : Fragment(R.layout.fragment_project) {
 
-    private var _binding: FragmentTimerBinding? = null
+    private var _binding: FragmentProjectBinding? = null
 
-    val args: TimerFragmentArgs by navArgs()
+//    val args: TimerFragmentArgs by navArgs()
 
 
-    private val viewModel: MainViewModel by viewModels()
+    private val viewModel: SharedViewModel by viewModels()
+
     // This property is only valid between onCreateView and
 // onDestroyView.
     private val binding get() = _binding!!
@@ -31,16 +30,24 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentTimerBinding.inflate(inflater, container, false)
+        _binding = FragmentProjectBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var id = args.projectId
-//        binding.title =
+
+        binding.startTimerButton.setOnClickListener {
+            viewModel.updateUIState(SharedViewModel.UIStatesEnum.RECORDING)
+        }
+
+
+
     }
+
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()

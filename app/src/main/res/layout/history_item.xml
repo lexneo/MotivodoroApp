@@ -1,53 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="100dp"
-    android:maxWidth="100dp"
-    app:cardCornerRadius="10dp"
-    app:cardUseCompatPadding="true"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardBackgroundColor="@color/project18color">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <TextView
+        android:id="@+id/date_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jan.19.2022"
+        android:textSize="18sp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="5dp">
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/primaryColor"
+        app:cardCornerRadius="10dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/date_text_view">
 
-        <TextView
-            android:id="@+id/project_name_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/project_name_text"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:textSize="24sp"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp">
 
-        <TextView
-            android:id="@+id/date_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="14.10.2021"
-            app:layout_constraintTop_toBottomOf="@id/project_name_text_view"
-            app:layout_constraintStart_toStartOf="@id/project_name_text_view"
-            android:textSize="24sp"/>
-
-        <TextView
-            android:id="@+id/time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="22:50 - 23:55"
-            app:layout_constraintBottom_toBottomOf="@id/date_text_view"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:textSize="24sp"/>
+            <TextView
+                android:id="@+id/project_name_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/project_name_text"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
+            <View
+                android:id="@+id/view_project_color"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/circle_shape"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/time_started_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="22:50"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/project_name_text_view" />
+
+            <TextView
+                android:id="@+id/minus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/minus"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/time_started_text_view"
+                app:layout_constraintStart_toEndOf="@id/time_started_text_view"
+                app:layout_constraintTop_toTopOf="@id/time_started_text_view" />
+
+            <TextView
+                android:id="@+id/time_ended_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="23:55"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/minus"
+                app:layout_constraintStart_toEndOf="@id/minus"
+                app:layout_constraintTop_toTopOf="@id/minus" />
+
+            <TextView
+                android:id="@+id/total_time_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="25"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_project_color" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+    </com.google.android.material.card.MaterialCardView>
 
-
-</com.google.android.material.card.MaterialCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,7 +17,7 @@ import com.lexneoapps.motivodoroapp.data.project.ProjectDao
 import com.lexneoapps.motivodoroapp.databinding.FragmentCreateProjectBinding
 import com.lexneoapps.motivodoroapp.other.Constants.DEFAULT_PROJECT_COLOR
 import com.lexneoapps.motivodoroapp.ui.ColorPickerDialogFragment
-import com.lexneoapps.motivodoroapp.ui.viewmodels.MainViewModel
+import com.lexneoapps.motivodoroapp.ui.startandtimer.SharedViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -31,7 +31,7 @@ class CreateProjectFragment : Fragment(R.layout.fragment_create_project) {
 
     private var _binding: FragmentCreateProjectBinding? = null
 
-    private val viewModel: MainViewModel by viewModels()
+    private val viewModel: SharedViewModel by viewModels()
     private var curNoteColor = DEFAULT_PROJECT_COLOR
 
 

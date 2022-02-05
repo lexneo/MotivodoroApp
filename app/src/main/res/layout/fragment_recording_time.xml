@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.startandtimer.TimeRecordingFragment">
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/quote_card_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/primaryColor"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.6"
+        app:layout_constraintHorizontal_weight="5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/favorited_image_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="end|bottom"
+            android:backgroundTint="#0003DAC5"
+            android:contentDescription="@string/quote_favorite_image_button_text"
+            android:minHeight="48dp"
+            android:src="@drawable/ic_baseline_favorite_24"
+            tools:ignore="ImageContrastCheck,RedundantDescriptionCheck" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/primaryColor"
+
+            android:orientation="vertical"
+
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/quote_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/life_savers"
+                android:text="@string/first_quote"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/quote_author_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/lemonada_semibold"
+                android:text="@string/author_name"
+                android:textSize="24sp" />
+
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+
+        android:id="@+id/linearProgressIndicator"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:outlineProvider="background"
+        android:progress="5"
+        tools:progress="10"
+        android:visibility="visible"
+        app:indicatorColor="@color/teal_200"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/quote_card_view"
+        app:trackColor="#5C1FC0CF"
+        app:trackCornerRadius="20dp"
+        app:trackThickness="30dp" />
+
+
+    <ImageButton
+        android:id="@+id/stop_image_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:backgroundTint="@color/teal_200"
+        android:contentDescription="@string/stop_countdown_timer_text"
+        android:minHeight="48dp"
+        android:src="@drawable/ic_baseline_stop_24"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/linearProgressIndicator"
+        app:layout_constraintHorizontal_bias="0.66"
+        app:layout_constraintStart_toStartOf="@+id/linearProgressIndicator"
+        app:layout_constraintTop_toBottomOf="@+id/linearProgressIndicator" />
+
+    <ImageButton
+        android:id="@+id/play_pause_image_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/teal_200"
+        android:contentDescription="@string/turn_on_countdown_timer_text"
+        android:minHeight="48dp"
+        android:src="@drawable/ic_baseline_play_arrow_24"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/stop_image_button"
+        app:layout_constraintEnd_toStartOf="@+id/stop_image_button"
+        tools:ignore="DuplicateClickableBoundsCheck" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

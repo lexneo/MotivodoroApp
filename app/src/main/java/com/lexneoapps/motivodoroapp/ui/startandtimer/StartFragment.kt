@@ -10,32 +10,28 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lexneoapps.motivodoroapp.R
-import com.lexneoapps.motivodoroapp.data.project.Project
-import com.lexneoapps.motivodoroapp.data.project.ProjectDao
 import com.lexneoapps.motivodoroapp.data.SortOrder
+import com.lexneoapps.motivodoroapp.data.project.Project
 import com.lexneoapps.motivodoroapp.databinding.FragmentStartBinding
 import com.lexneoapps.motivodoroapp.ui.adapters.ProjectAdapter
-import com.lexneoapps.motivodoroapp.ui.viewmodels.MainViewModel
 import com.lexneoapps.motivodoroapp.util.onQueryTextChanged
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import timber.log.Timber
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class StartFragment : Fragment(R.layout.fragment_start) {
 
     private var _binding: FragmentStartBinding? = null
 
-    @Inject
-    lateinit var projectDao: ProjectDao
+
 
     lateinit var projectList: List<Project>
 
     lateinit var projectAdapter: ProjectAdapter
 
-    private val viewModel: MainViewModel by viewModels()
+    private val viewModel: SharedViewModel by viewModels()
 
     // This property is only valid between onCreateView and
 // onDestroyView.
@@ -60,16 +56,18 @@ class StartFragment : Fragment(R.layout.fragment_start) {
             projectAdapter.list = it
         }
 
+
+
         binding.floatingActionButton.setOnClickListener {
             val action = StartFragmentDirections.actionStartFragmentToCreateProjectFragment()
             findNavController().navigate(action)
         }
 
-        projectAdapter.setOnItemClickListener {
-            findNavController().navigate(
-                StartFragmentDirections.actionStartFragmentToTimerFragment(it.id)
-            )
-        }
+//        projectAdapter.setOnItemClickListener {
+//            findNavController().navigate(
+//                StartFragmentDirections.actionStartFragmentToTimerFragment(it.id)
+//            )
+//        }
 
         setHasOptionsMenu(true)
     }

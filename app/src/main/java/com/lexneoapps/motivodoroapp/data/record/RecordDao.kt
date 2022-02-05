@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 interface RecordDao {
 
     @Query("SELECT * FROM record_table")
-    fun getProjects() : Flow<List<Record>>
+    fun getRecords() : Flow<List<Record>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertRecord(record: Record)

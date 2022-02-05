@@ -24,4 +24,6 @@
     <string name="next_text">Next</string>
     <string name="start_countdown_timer_text">start countdown timer</string>
     <string name="project_name_text">project name</string>
+    <string name="unlocked_and_total_quotes">%1$s/%2$s</string>
+    <string name="minus">-</string>
 </resources>

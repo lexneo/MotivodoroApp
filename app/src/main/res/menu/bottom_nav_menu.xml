@@ -15,6 +15,6 @@
 
     <item android:id="@+id/quotesFragment"
         android:title="@string/quotes"
-        android:icon="@drawable/ic_baseline_text_snippet_24"/>
+        android:icon="@drawable/ic_baseline_format_quote_24"/>
 
 </menu>

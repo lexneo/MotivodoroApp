@@ -1,4 +1,4 @@
-package com.lexneoapps.motivodoroapp.ui.viewmodels
+package com.lexneoapps.motivodoroapp.ui.startandtimer
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
@@ -12,19 +12,42 @@ import com.lexneoapps.motivodoroapp.data.record.RecordDao
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(
+class SharedViewModel @Inject constructor(
     private val preferencesManager: PreferencesManager,
     private val projectDao: ProjectDao,
     private val cdTimerDao: CDTimerDao,
     private val quoteDao: QuoteDao,
     private val recordDao: RecordDao
 ) : ViewModel() {
+
+    enum class UIStatesEnum{
+        IDLE,RECORDING,PAUSEORNOTSTARTED
+    }
+    // Backing property to avoid state updates from other classes
+    private val _uiState = MutableStateFlow<TimerUIState>(TimerUIState.Idle)
+
+    // The UI collects from this StateFlow to get its state updates
+    val uiState = _uiState.asStateFlow()
+
+    fun updateUIState(uiStatesEnum : UIStatesEnum){
+        when(uiStatesEnum){
+            UIStatesEnum.IDLE -> _uiState.value = TimerUIState.Idle
+            UIStatesEnum.RECORDING -> _uiState.value = TimerUIState.Recording
+            UIStatesEnum.PAUSEORNOTSTARTED -> _uiState.value = TimerUIState.PausedOrNotStarted
+        }
+    }
+    sealed class TimerUIState {
+        object Idle : TimerUIState()
+        object Recording : TimerUIState()
+        object PausedOrNotStarted : TimerUIState()
+    }
 
     val searchQuery = MutableStateFlow("")
 
@@ -54,6 +77,8 @@ class MainViewModel @Inject constructor(
     }
 
     val projects = projectFlow.asLiveData()
+
+    val getRecords = recordDao.getRecords().asLiveData()
 
     fun onSortOrderSelected(sortOrder: SortOrder) = viewModelScope.launch {
         preferencesManager.updateSortOrder(sortOrder)
