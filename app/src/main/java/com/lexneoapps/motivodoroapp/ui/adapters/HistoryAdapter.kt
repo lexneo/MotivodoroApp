@@ -14,7 +14,8 @@ import com.lexneoapps.motivodoroapp.databinding.HistoryItemBinding
 import timber.log.Timber
 
 
-class HistoryAdapter(val context: Context) : ListAdapter<Record, HistoryAdapter.HistoryViewHolder>(RecordDiffCallback()) {
+class HistoryAdapter(val context: Context) :
+    ListAdapter<Record, HistoryAdapter.HistoryViewHolder>(RecordDiffCallback()) {
 
     override fun onDetachedFromRecyclerView(recyclerView: RecyclerView) {
 
@@ -32,48 +33,56 @@ class HistoryAdapter(val context: Context) : ListAdapter<Record, HistoryAdapter.
 //                viewProjectColor.background = record.projectColor.toDrawable()
                 timeStartedTextView.text = record.startTimeFormattedTime
                 timeEndedTextView.text = record.endTimeTimeFormattedTime
-                totalTimeTextView.text = record.totalTime.toString()
+                totalTimeTextView.text = record.totalTimeFormatted
                 dateTextView.text = record.startTimeFormattedDate
 
-
-                }
-
-        }
-        }
-
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryViewHolder {
-            val binding = HistoryItemBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
-            )
+             /*   projectNameTextView.text = record.projectName
+                startTimeTextView.text = record.startTimeFormattedTime
+                endTimeTextView.text = record.endTimeTimeFormattedTime
 
 
-            return HistoryViewHolder(binding)
+                totalTimeTextView.text = record.totaltimeFormatedTry2
+                dateTextView.text = record.startTimeFormattedDate*/
 
 
-        }
-
-
-        override fun onBindViewHolder(holder: HistoryViewHolder, position: Int) {
-            val currentRecord = getItem(position)
-            val drawable = ResourcesCompat.getDrawable(context.resources, R.drawable.circle_shape, null)
-            drawable?.let {
-                val wrappedDrawable = DrawableCompat.wrap(it)
-                val color = currentRecord.projectColor
-                DrawableCompat.setTint(wrappedDrawable, color)
-                holder.binding.viewProjectColor.background = wrappedDrawable
             }
-            holder.bind(currentRecord)
+
         }
     }
 
-    private class RecordDiffCallback : DiffUtil.ItemCallback<Record>() {
-        override fun areItemsTheSame(oldItem: Record, newItem: Record): Boolean {
-            return oldItem.id == newItem.id
-        }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryViewHolder {
+        val binding = HistoryItemBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
 
-        override fun areContentsTheSame(oldItem: Record, newItem: Record): Boolean {
-            return oldItem == newItem
-        }
+
+        return HistoryViewHolder(binding)
+
+
     }
+
+
+    override fun onBindViewHolder(holder: HistoryViewHolder, position: Int) {
+        val currentRecord = getItem(position)
+        val drawable = ResourcesCompat.getDrawable(context.resources, R.drawable.circle_shape, null)
+        drawable?.let {
+            val wrappedDrawable = DrawableCompat.wrap(it)
+            val color = currentRecord.projectColor
+            DrawableCompat.setTint(wrappedDrawable, color)
+            holder.binding.viewProjectColor.background = wrappedDrawable
+        }
+        holder.bind(currentRecord)
+    }
+}
+
+private class RecordDiffCallback : DiffUtil.ItemCallback<Record>() {
+    override fun areItemsTheSame(oldItem: Record, newItem: Record): Boolean {
+        return oldItem.id == newItem.id
+    }
+
+    override fun areContentsTheSame(oldItem: Record, newItem: Record): Boolean {
+        return oldItem == newItem
+    }
+}

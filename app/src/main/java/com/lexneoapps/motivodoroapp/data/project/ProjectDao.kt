@@ -24,8 +24,8 @@ interface ProjectDao {
     fun getProjectsSortedByName(searchQuery : String) : Flow<List<Project>>
 
 
-    @Query("SELECT * FROM project_table")
-    suspend fun listProjects() : List<Project>
+/*    @Query("SELECT * FROM project_table")
+    suspend fun listProjects() : List<Project>*/
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertProject(project: Project)

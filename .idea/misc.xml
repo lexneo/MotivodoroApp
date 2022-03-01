@@ -10,9 +10,11 @@
         <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout/authors_item.xml" value="0.22950819672131148" />
         <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout/fragment_authors.xml" value="0.22950819672131148" />
+        <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout/fragment_countdown_timer.xml" value="0.2444078947368421" />
         <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout/fragment_create_project.xml" value="0.33" />
         <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout/fragment_detailed_project_statistics.xml" value="0.2444078947368421" />
         <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout/fragment_edit_history_record.xml" value="0.33" />
+        <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout/fragment_edit_timer.xml" value="0.2444078947368421" />
         <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout/fragment_history.xml" value="0.2848731884057971" />
         <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout/fragment_project.xml" value="0.22950819672131148" />
         <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout/fragment_project_statistics.xml" value="0.2444078947368421" />
@@ -22,6 +24,7 @@
         <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout/fragment_recording_time.xml" value="0.2444078947368421" />
         <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout/fragment_start.xml" value="0.2848731884057971" />
         <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout/fragment_statistics.xml" value="0.18819655521783182" />
+        <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout/fragment_stopwatch.xml" value="0.12007110536522302" />
         <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout/fragment_timer.xml" value="0.15" />
         <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout/fragment_timer1.xml" value="0.10294117647058823" />
         <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout/fragment_timing.xml" value="0.13861386138613863" />

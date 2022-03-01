@@ -1,8 +1,6 @@
 package com.lexneoapps.motivodoroapp.ui.startandtimer
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asLiveData
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.lexneoapps.motivodoroapp.data.cdtimer.CDTimerDao
 import com.lexneoapps.motivodoroapp.data.PreferencesManager
 import com.lexneoapps.motivodoroapp.data.SortOrder
@@ -47,6 +45,20 @@ class SharedViewModel @Inject constructor(
         object Idle : TimerUIState()
         object Recording : TimerUIState()
         object PausedOrNotStarted : TimerUIState()
+    }
+
+    private val _projectId = MutableLiveData<Int>()
+    val projectId: LiveData<Int> = _projectId
+
+    fun setProjectId(projectId: Int) {
+        _projectId.value = projectId
+    }
+
+    private val _projectName = MutableLiveData<String>()
+    val projectName: LiveData<String> = _projectName
+
+    fun setProjectName(projectName : String){
+        _projectName.value = projectName
     }
 
     val searchQuery = MutableStateFlow("")

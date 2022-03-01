@@ -5,7 +5,7 @@ import android.view.*
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,7 +13,10 @@ import com.lexneoapps.motivodoroapp.R
 import com.lexneoapps.motivodoroapp.data.SortOrder
 import com.lexneoapps.motivodoroapp.data.project.Project
 import com.lexneoapps.motivodoroapp.databinding.FragmentStartBinding
+import com.lexneoapps.motivodoroapp.services.SingletonProjectAttr
+import com.lexneoapps.motivodoroapp.services.StopwatchService
 import com.lexneoapps.motivodoroapp.ui.adapters.ProjectAdapter
+import com.lexneoapps.motivodoroapp.util.formatMillisToTimer
 import com.lexneoapps.motivodoroapp.util.onQueryTextChanged
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.first
@@ -26,12 +29,11 @@ class StartFragment : Fragment(R.layout.fragment_start) {
     private var _binding: FragmentStartBinding? = null
 
 
-
     lateinit var projectList: List<Project>
 
     lateinit var projectAdapter: ProjectAdapter
 
-    private val viewModel: SharedViewModel by viewModels()
+    private val viewModel: SharedViewModel by activityViewModels()
 
     // This property is only valid between onCreateView and
 // onDestroyView.
@@ -51,17 +53,12 @@ class StartFragment : Fragment(R.layout.fragment_start) {
         super.onViewCreated(view, savedInstanceState)
 
         setUpRV()
+        setUpBindings()
 
         viewModel.projects.observe(viewLifecycleOwner) {
-            projectAdapter.list = it
+            projectAdapter.submitList(it)
         }
 
-
-
-        binding.floatingActionButton.setOnClickListener {
-            val action = StartFragmentDirections.actionStartFragmentToCreateProjectFragment()
-            findNavController().navigate(action)
-        }
 
 //        projectAdapter.setOnItemClickListener {
 //            findNavController().navigate(
@@ -129,14 +126,53 @@ class StartFragment : Fragment(R.layout.fragment_start) {
         }
     }
 
+    private fun setUpBindings() {
+        binding.floatingActionButton.setOnClickListener {
+            val action = StartFragmentDirections.actionStartFragmentToCreateProjectFragment()
+            findNavController().navigate(action)
+        }
+        viewsVisibility()
+    }
+
+    private fun viewsVisibility() {
+        if (StopwatchService.isTracking.value == true || StopwatchService.elapsedMilliSeconds.value!! > 0L) {
+            binding.apply {
+                startGroup.visibility = View.GONE
+                trackingCardView.visibility = View.VISIBLE
+                trackingCardView.setOnClickListener {
+                    val action = StartFragmentDirections.actionStartFragmentToStopWatchFragment()
+                    findNavController().navigate(action)
+                }
+                currentProjectLayout.setBackgroundColor(SingletonProjectAttr.projectColor)
+                currentProjectNameTextView.text = SingletonProjectAttr.projectName
+                StopwatchService.elapsedMilliSeconds.observe(viewLifecycleOwner) { elapsedMillis ->
+                    currentTimeTextView.text = formatMillisToTimer(elapsedMillis)
+                }
+
+            }
+        } else {
+            binding.apply {
+                trackingCardView.visibility = View.GONE
+                startGroup.visibility = View.VISIBLE
+            }
+        }
+    }
+
     private fun setUpRV() = binding.recyclerView.apply {
         projectAdapter = ProjectAdapter()
         adapter = projectAdapter
         layoutManager = LinearLayoutManager(this@StartFragment.requireContext())
         setHasFixedSize(true)
+        projectAdapter.setOnItemClickListener {
+            SingletonProjectAttr.projectName = it.name
+            SingletonProjectAttr.projectColor = it.color
+            findNavController().navigate(StartFragmentDirections.actionStartFragmentToProjectFragment())
+        }
+
         Timber.d("adapter set")
 
     }
+
 
     //set the dark(er:)) mode and save it via datastore
     private fun setUIMode(boolean: Boolean) {

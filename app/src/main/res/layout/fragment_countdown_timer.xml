@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.startandtimer.TimeRecordingFragment">
+    tools:context=".ui.startandtimer.CountDownFragment">
 
 
     <com.google.android.material.card.MaterialCardView
@@ -67,6 +67,29 @@
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
+    <TextView
+        android:id="@+id/timer_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="@id/quote_card_view"
+        app:layout_constraintStart_toStartOf="@id/quote_card_view"
+        app:layout_constraintTop_toBottomOf="@id/quote_card_view"
+        tools:text="00:00:00" />
+
+    <TextView
+        android:id="@+id/rounds_left_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@id/timer_text_view"
+        app:layout_constraintStart_toStartOf="@id/timer_text_view"
+        app:layout_constraintTop_toBottomOf="@id/timer_text_view"
+        tools:text="Rounds left: 4" />
+
+
     <com.google.android.material.progressindicator.LinearProgressIndicator
 
         android:id="@+id/linearProgressIndicator"
@@ -77,45 +100,60 @@
         android:layout_marginEnd="24dp"
         android:outlineProvider="background"
         android:progress="5"
-        tools:progress="10"
         android:visibility="visible"
         app:indicatorColor="@color/teal_200"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/quote_card_view"
+        app:layout_constraintTop_toBottomOf="@id/rounds_left_text_view"
         app:trackColor="#5C1FC0CF"
         app:trackCornerRadius="20dp"
-        app:trackThickness="30dp" />
+        app:trackThickness="30dp"
+        tools:progress="30" />
 
 
     <ImageButton
-        android:id="@+id/stop_image_button"
+        android:id="@+id/pause_image_button"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/teal_200"
+        android:contentDescription="@string/pause_countdown_timer_text"
+        android:minHeight="48dp"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/ic_baseline_pause_24"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/play_image_button"
+        app:layout_constraintStart_toEndOf="@+id/play_image_button"
+        app:layout_constraintTop_toTopOf="@+id/play_image_button" />
+
+    <ImageButton
+        android:id="@+id/play_image_button"
+        android:layout_width="wrap_content"
+
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
-        android:backgroundTint="@color/teal_200"
-        android:contentDescription="@string/stop_countdown_timer_text"
-        android:minHeight="48dp"
-        android:src="@drawable/ic_baseline_stop_24"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="@+id/linearProgressIndicator"
-        app:layout_constraintHorizontal_bias="0.66"
-        app:layout_constraintStart_toStartOf="@+id/linearProgressIndicator"
-        app:layout_constraintTop_toBottomOf="@+id/linearProgressIndicator" />
-
-    <ImageButton
-        android:id="@+id/play_pause_image_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
         android:backgroundTint="@color/teal_200"
         android:contentDescription="@string/turn_on_countdown_timer_text"
         android:minHeight="48dp"
         android:src="@drawable/ic_baseline_play_arrow_24"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="@+id/stop_image_button"
-        app:layout_constraintEnd_toStartOf="@+id/stop_image_button"
+        app:layout_constraintEnd_toEndOf="@+id/linearProgressIndicator"
+        app:layout_constraintStart_toStartOf="@+id/linearProgressIndicator"
+        app:layout_constraintTop_toBottomOf="@+id/linearProgressIndicator"
+        tools:ignore="DuplicateClickableBoundsCheck" />
+
+    <ImageButton
+        android:id="@+id/stop_image_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/teal_200"
+        android:contentDescription="@string/stop_countdown_timer_text"
+        android:minHeight="48dp"
+        android:src="@drawable/ic_baseline_stop_24"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/play_image_button"
+        app:layout_constraintEnd_toStartOf="@+id/play_image_button"
         tools:ignore="DuplicateClickableBoundsCheck" />
 
 

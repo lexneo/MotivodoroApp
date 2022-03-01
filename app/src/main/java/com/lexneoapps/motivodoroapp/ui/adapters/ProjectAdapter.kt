@@ -4,31 +4,18 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.lexneoapps.motivodoroapp.data.project.Project
 import com.lexneoapps.motivodoroapp.databinding.ProjectItemBinding
 
 
 class ProjectAdapter() :
-    RecyclerView.Adapter<ProjectAdapter.MyViewHolder>() {
+    ListAdapter<Project,ProjectAdapter.MyViewHolder>(ProjectDiffCallback()) {
 
-    class MyViewHolder(val binding: ProjectItemBinding) : RecyclerView.ViewHolder(binding.root)
+    class MyViewHolder(val binding: ProjectItemBinding) : RecyclerView.ViewHolder(binding.root){
 
-    private val diffCallback = object : DiffUtil.ItemCallback<Project>() {
-        override fun areItemsTheSame(oldItem: Project, newItem: Project): Boolean {
-            return oldItem.id == newItem.id
-        }
-
-        override fun areContentsTheSame(oldItem: Project, newItem: Project): Boolean {
-            return oldItem == newItem
-        }
     }
-    private val differ = AsyncListDiffer(this, diffCallback)
-    var list: List<Project>
-        get() = differ.currentList
-        set(value) {
-            differ.submitList(value)
-        }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -39,27 +26,33 @@ class ProjectAdapter() :
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val currentProject = list[position]
+        val currentProject = getItem(position)
 
-        holder.binding.linearLayout.setBackgroundColor(currentProject.color)
-        holder.binding.projectNameTextView.text = currentProject.name
-
-
-        holder.binding.root.setOnClickListener {
-            onItemClickListener?.let { click ->
-                click(currentProject)
+        holder.binding.apply {
+            linearLayout.setBackgroundColor(currentProject.color)
+            projectNameTextView.text = currentProject.name
+            root.setOnClickListener {
+                onItemClickListener?.let { click ->
+                    click(currentProject)
+                }
             }
         }
     }
 
-    override fun getItemCount(): Int {
-        return list.size
-    }
 
     private var onItemClickListener: ((Project) -> Unit)? = null
 
     fun setOnItemClickListener(onItemClick: (Project) -> Unit) {
         this.onItemClickListener = onItemClick
+    }
+}
+private class ProjectDiffCallback : DiffUtil.ItemCallback<Project>() {
+    override fun areItemsTheSame(oldItem: Project, newItem: Project): Boolean {
+        return oldItem.id == newItem.id
+    }
+
+    override fun areContentsTheSame(oldItem: Project, newItem: Project): Boolean {
+        return oldItem == newItem
     }
 }
 

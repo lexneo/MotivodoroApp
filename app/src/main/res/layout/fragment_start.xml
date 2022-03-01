@@ -6,6 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".ui.startandtimer.StartFragment">
 
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/start_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="recycler_view,projects_text_view,floatingActionButton" />
+
     <TextView
         android:id="@+id/projects_text_view"
         android:layout_width="wrap_content"
@@ -27,7 +33,7 @@
         android:layout_marginStart="1dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="1dp"
-       app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/projects_text_view" />
@@ -39,10 +45,53 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:clickable="true"
+        android:contentDescription="@string/add_new_project_text"
+        android:focusable="true"
         android:src="@drawable/ic_baseline_add_24"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/tracking_card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="6dp"
+        android:visibility="visible"
+        app:cardCornerRadius="20dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:contentDescription="@string/add_new_project_text"
-        android:focusable="true" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/recycler_view">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/current_project_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/current_project_name_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="32sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Android" />
+
+            <TextView
+                android:id="@+id/current_time_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="22dp"
+                android:textSize="32sp"
+                app:layout_constraintEnd_toEndOf="@id/current_project_name_text_view"
+                app:layout_constraintStart_toStartOf="@id/current_project_name_text_view"
+                app:layout_constraintTop_toBottomOf="@id/current_project_name_text_view"
+                tools:text="00:00:00" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

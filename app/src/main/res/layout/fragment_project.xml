@@ -21,12 +21,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:fontFamily="@font/candal"
-        android:text="Project name"
-
         android:textAppearance="@style/TextAppearance.Material3.HeadlineLarge"
+        android:textColor="@color/white"
+
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Android" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/timer_card_view1"
@@ -238,16 +239,16 @@
                 style="@style/Widget.MaterialComponents.Button.Icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:icon="@drawable/ic_baseline_play_arrow_24"
-
-
                 android:backgroundTint="#1ADDB6"
+
+
                 android:contentDescription="@string/start_countdown_timer_text"
-
-
                 android:elevation="10dp"
+
+
                 android:maxWidth="30dp"
                 app:cornerRadius="10dp"
+                app:icon="@drawable/ic_baseline_play_arrow_24"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/repeat_text_view2"
@@ -382,6 +383,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:backgroundTint="@color/primaryLightColor"
+        android:clickable="true"
+        android:focusable="true"
         android:text="@string/start_timer_text"
         android:textColor="@color/colorAccent"
         app:cornerRadius="15dp"
@@ -392,20 +395,19 @@
         app:strokeWidth="3dp" />
 
 
-
-   <!-- <ImageButton
-        android:id="@+id/pause_image_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="@color/teal_200"
-        android:contentDescription="@string/pause_countdown_timer_text"
-        android:minHeight="48dp"
-        android:src="@drawable/ic_baseline_pause_24"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/stop_image_button"
-        app:layout_constraintEnd_toStartOf="@+id/stop_image_button"
-        tools:ignore="DuplicateClickableBoundsCheck" />-->
+    <!-- <ImageButton
+         android:id="@+id/pause_image_button"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginEnd="16dp"
+         android:backgroundTint="@color/teal_200"
+         android:contentDescription="@string/pause_countdown_timer_text"
+         android:minHeight="48dp"
+         android:src="@drawable/ic_baseline_pause_24"
+         android:visibility="gone"
+         app:layout_constraintBottom_toBottomOf="@+id/stop_image_button"
+         app:layout_constraintEnd_toStartOf="@+id/stop_image_button"
+         tools:ignore="DuplicateClickableBoundsCheck" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

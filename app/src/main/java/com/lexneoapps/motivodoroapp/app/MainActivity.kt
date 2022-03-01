@@ -1,5 +1,6 @@
 package com.lexneoapps.motivodoroapp.app
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -10,7 +11,9 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.lexneoapps.motivodoroapp.R
 import com.lexneoapps.motivodoroapp.databinding.ActivityMainBinding
+import com.lexneoapps.motivodoroapp.other.Constants.ACTION_SHOW_STOPWATCH_FRAGMENT
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -37,17 +40,35 @@ class MainActivity : AppCompatActivity() {
 
         setupActionBarWithNavController(navController,appBarConfiguration)
         binding.bottomNavigationView.setupWithNavController(navController)
+        navigateToTrackingFragmentIfNeeded(intent)
 
-      /*  navController.addOnDestinationChangedListener{
-                _,destination,_ ->
-            when(destination.id){
-                R.id.startFragment, R.id.quotesFragment, R.id.statisticsFragment, R.id.historyFragment ->
-                    binding.bottomNavigationView.visibility = View.VISIBLE
-                else -> binding.bottomNavigationView.visibility = View.GONE
-            }
-        }*/
+
+        /*  navController.addOnDestinationChangedListener{
+                  _,destination,_ ->
+              when(destination.id){
+                  R.id.startFragment, R.id.quotesFragment, R.id.statisticsFragment, R.id.historyFragment ->
+                      binding.bottomNavigationView.visibility = View.VISIBLE
+                  else -> binding.bottomNavigationView.visibility = View.GONE
+              }
+          }*/
+    }
+
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        navigateToTrackingFragmentIfNeeded(intent)
+    }
+
+    private fun navigateToTrackingFragmentIfNeeded(intent: Intent?){
+        if (intent?.action == ACTION_SHOW_STOPWATCH_FRAGMENT){
+            navController.navigate(R.id.action_global_stopWatchFragment)
+        }
     }
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
+    }
+
+    override fun onDestroy() {
+        Timber.i("MAINACTIVITY DESTROYED!!!")
+        super.onDestroy()
     }
 }

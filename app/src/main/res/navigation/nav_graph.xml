@@ -16,6 +16,10 @@
         <action
             android:id="@+id/action_startFragment_to_projectFragment"
             app:destination="@id/projectFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_stopWatchFragment"
+            app:destination="@id/stopWatchFragment"
+            app:popUpTo="@id/startFragment" />
     </fragment>
 
     <fragment
@@ -54,24 +58,57 @@
         android:id="@+id/editHistoryRecordFragment"
         android:name="com.lexneoapps.motivodoroapp.ui.edithistory.EditHistoryRecordFragment"
         android:label="fragment_edit_history_record"
-        tools:layout="@layout/fragment_edit_history_record" />
+        tools:layout="@layout/fragment_edit_history_record" >
+        <action
+            android:id="@+id/action_editHistoryRecordFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/recordingFragment"
-        android:name="com.lexneoapps.motivodoroapp.ui.startandtimer.TimeRecordingFragment"
+        android:id="@+id/stopWatchFragment"
+        android:name="com.lexneoapps.motivodoroapp.ui.startandtimer.StopWatchFragment"
         android:label="fragment_recording"
-        tools:layout="@layout/fragment_recording_time" />
+        tools:layout="@layout/fragment_stopwatch" >
+        <action
+            android:id="@+id/action_stopWatchFragment_to_projectFragment"
+            app:destination="@id/projectFragment"
+            app:popUpTo="@id/startFragment" />
+    </fragment>
     <fragment
         android:id="@+id/projectFragment"
         android:name="com.lexneoapps.motivodoroapp.ui.startandtimer.ProjectFragment"
         android:label="fragment_project"
         tools:layout="@layout/fragment_project" >
         <action
-            android:id="@+id/action_projectFragment_to_recordingFragment"
-            app:destination="@id/recordingFragment" />
+            android:id="@+id/action_projectFragment_to_editTimerFragment"
+            app:destination="@id/editTimerFragment" />
+        <action
+            android:id="@+id/action_projectFragment_to_countDownFragment"
+            app:destination="@id/countDownFragment" />
+        <action
+            android:id="@+id/action_projectFragment_to_stopWatchFragment"
+            app:destination="@id/stopWatchFragment" />
     </fragment>
     <fragment
         android:id="@+id/projectStatisticsFragment"
         android:name="com.lexneoapps.motivodoroapp.ui.statistics.ProjectStatisticsFragment"
         android:label="fragment_project_statistics"
         tools:layout="@layout/fragment_project_statistics" />
+    <fragment
+        android:id="@+id/editTimerFragment"
+        android:name="com.lexneoapps.motivodoroapp.ui.edittimer.EditTimerFragment"
+        android:label="fragment_edit_timer"
+        tools:layout="@layout/fragment_edit_timer" >
+        <action
+            android:id="@+id/action_editTimerFragment_to_projectFragment"
+            app:destination="@id/projectFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/countDownFragment"
+        android:name="com.lexneoapps.motivodoroapp.ui.startandtimer.CountDownFragment"
+        android:label="fragment_countdown_timer"
+        tools:layout="@layout/fragment_countdown_timer" >
+        <action
+            android:id="@+id/action_countDownFragment_to_projectFragment"
+            app:destination="@id/projectFragment" />
+    </fragment><action android:id="@+id/action_global_stopWatchFragment" app:destination="@id/stopWatchFragment"/>
 </navigation>
