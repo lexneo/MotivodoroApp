@@ -1,58 +1,64 @@
 package com.lexneoapps.motivodoroapp.ui.adapters
+/*
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.lexneoapps.motivodoroapp.data.cdtimer.CDTimer
 import com.lexneoapps.motivodoroapp.data.project.Project
+import com.lexneoapps.motivodoroapp.databinding.CdtimerItemBinding
 import com.lexneoapps.motivodoroapp.databinding.ProjectItemBinding
 
 
 class ProjectAdapter() :
-    ListAdapter<Project,ProjectAdapter.MyViewHolder>(ProjectDiffCallback()) {
+    ListAdapter<CDTimer,ProjectAdapter.MyViewHolder>(ProjectDiffCallback()) {
 
-    class MyViewHolder(val binding: ProjectItemBinding) : RecyclerView.ViewHolder(binding.root){
+    class MyViewHolder(val binding: CdtimerItemBinding) : RecyclerView.ViewHolder(binding.root){
 
     }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(
-            ProjectItemBinding.inflate
+            CdtimerItemBinding.inflate
                 (LayoutInflater.from(parent.context), parent, false)
         )
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val currentProject = getItem(position)
+        val currentCDTimer = getItem(position)
 
         holder.binding.apply {
-            linearLayout.setBackgroundColor(currentProject.color)
-            projectNameTextView.text = currentProject.name
+            cdtimerLayout.setBackgroundColor(currentCDTimer.color)
+            countdownTimerTextView.text = currentCDTimer.name
+            activityTimeTextView.text = currentCDTimer.countdown.toInt().toString()
+            pauseTimeTextView.text = currentCDTimer.pause.toInt().toString()
+            repeatTimeTextView.text = currentCDTimer.repeat.toString()
             root.setOnClickListener {
                 onItemClickListener?.let { click ->
-                    click(currentProject)
+                    click(currentCDTimer)
                 }
             }
         }
     }
 
 
-    private var onItemClickListener: ((Project) -> Unit)? = null
+    private var onItemClickListener: ((CDTimer) -> Unit)? = null
 
-    fun setOnItemClickListener(onItemClick: (Project) -> Unit) {
+    fun setOnItemClickListener(onItemClick: (CDTimer) -> Unit) {
         this.onItemClickListener = onItemClick
     }
 }
-private class ProjectDiffCallback : DiffUtil.ItemCallback<Project>() {
-    override fun areItemsTheSame(oldItem: Project, newItem: Project): Boolean {
+private class ProjectDiffCallback : DiffUtil.ItemCallback<CDTimer>() {
+    override fun areItemsTheSame(oldItem: CDTimer, newItem: CDTimer): Boolean {
         return oldItem.id == newItem.id
     }
 
-    override fun areContentsTheSame(oldItem: Project, newItem: Project): Boolean {
+    override fun areContentsTheSame(oldItem: CDTimer, newItem: CDTimer): Boolean {
         return oldItem == newItem
     }
 }
 
+*/

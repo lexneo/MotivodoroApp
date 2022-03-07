@@ -15,7 +15,7 @@ import com.lexneoapps.motivodoroapp.data.project.Project
 import com.lexneoapps.motivodoroapp.databinding.FragmentStartBinding
 import com.lexneoapps.motivodoroapp.services.SingletonProjectAttr
 import com.lexneoapps.motivodoroapp.services.StopwatchService
-import com.lexneoapps.motivodoroapp.ui.adapters.ProjectAdapter
+import com.lexneoapps.motivodoroapp.ui.adapters.StartAdapter
 import com.lexneoapps.motivodoroapp.util.formatMillisToTimer
 import com.lexneoapps.motivodoroapp.util.onQueryTextChanged
 import dagger.hilt.android.AndroidEntryPoint
@@ -31,7 +31,7 @@ class StartFragment : Fragment(R.layout.fragment_start) {
 
     lateinit var projectList: List<Project>
 
-    lateinit var projectAdapter: ProjectAdapter
+    lateinit var startAdapter: StartAdapter
 
     private val viewModel: SharedViewModel by activityViewModels()
 
@@ -56,7 +56,7 @@ class StartFragment : Fragment(R.layout.fragment_start) {
         setUpBindings()
 
         viewModel.projects.observe(viewLifecycleOwner) {
-            projectAdapter.submitList(it)
+            startAdapter.submitList(it)
         }
 
 
@@ -159,13 +159,12 @@ class StartFragment : Fragment(R.layout.fragment_start) {
     }
 
     private fun setUpRV() = binding.recyclerView.apply {
-        projectAdapter = ProjectAdapter()
-        adapter = projectAdapter
+        startAdapter = StartAdapter()
+        adapter = startAdapter
         layoutManager = LinearLayoutManager(this@StartFragment.requireContext())
         setHasFixedSize(true)
-        projectAdapter.setOnItemClickListener {
-            SingletonProjectAttr.projectName = it.name
-            SingletonProjectAttr.projectColor = it.color
+        startAdapter.setOnItemClickListener {
+            SingletonProjectAttr.setAttributes(it.name, it.color)
             findNavController().navigate(StartFragmentDirections.actionStartFragmentToProjectFragment())
         }
 

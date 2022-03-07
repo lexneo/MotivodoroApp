@@ -101,6 +101,9 @@
         <action
             android:id="@+id/action_editTimerFragment_to_projectFragment"
             app:destination="@id/projectFragment" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/countDownFragment"

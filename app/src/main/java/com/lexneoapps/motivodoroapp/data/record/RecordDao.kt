@@ -6,8 +6,8 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface RecordDao {
 
-    @Query("SELECT * FROM record_table")
-    fun getRecords() : Flow<List<Record>>
+    @Query("SELECT * FROM record_table ORDER BY startTime DESC ")
+    fun getRecords(): Flow<List<Record>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertRecord(record: Record)

@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".ui.startandtimer.CountDownFragment">
 
+    <TextView
+        android:id="@+id/project_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+
+
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/quote_card_view"
@@ -22,7 +34,7 @@
         app:layout_constraintHeight_percent="0.6"
         app:layout_constraintHorizontal_weight="5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/project_title">
 
         <ImageButton
             android:id="@+id/favorited_image_button"
@@ -84,10 +96,21 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textSize="16sp"
+        android:text="@string/rounds_left"
         app:layout_constraintEnd_toEndOf="@id/timer_text_view"
         app:layout_constraintStart_toStartOf="@id/timer_text_view"
-        app:layout_constraintTop_toBottomOf="@id/timer_text_view"
-        tools:text="Rounds left: 4" />
+        app:layout_constraintTop_toBottomOf="@id/timer_text_view" />
+
+    <TextView
+        android:id="@+id/rounds_left_number_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="16sp"
+        tools:text="4"
+        app:layout_constraintStart_toEndOf="@id/rounds_left_text_view"
+        app:layout_constraintTop_toTopOf="@id/rounds_left_text_view"
+        app:layout_constraintBottom_toBottomOf="@id/rounds_left_text_view" />
 
 
     <com.google.android.material.progressindicator.LinearProgressIndicator

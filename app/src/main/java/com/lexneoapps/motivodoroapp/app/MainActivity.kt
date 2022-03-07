@@ -33,12 +33,18 @@ class MainActivity : AppCompatActivity() {
 
         navController = navHostFragment.findNavController()
 
-        appBarConfiguration = AppBarConfiguration(setOf(R.id.startFragment,R.id.historyFragment
-            ,R.id.statisticsFragment,R.id.quotesFragment))
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.startFragment,
+                R.id.historyFragment,
+                R.id.statisticsFragment,
+                R.id.quotesFragment
+            )
+        )
 
         setSupportActionBar(binding.toolbar)
 
-        setupActionBarWithNavController(navController,appBarConfiguration)
+        setupActionBarWithNavController(navController, appBarConfiguration)
         binding.bottomNavigationView.setupWithNavController(navController)
         navigateToTrackingFragmentIfNeeded(intent)
 
@@ -58,11 +64,12 @@ class MainActivity : AppCompatActivity() {
         navigateToTrackingFragmentIfNeeded(intent)
     }
 
-    private fun navigateToTrackingFragmentIfNeeded(intent: Intent?){
-        if (intent?.action == ACTION_SHOW_STOPWATCH_FRAGMENT){
+    private fun navigateToTrackingFragmentIfNeeded(intent: Intent?) {
+        if (intent?.action == ACTION_SHOW_STOPWATCH_FRAGMENT) {
             navController.navigate(R.id.action_global_stopWatchFragment)
         }
     }
+
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }

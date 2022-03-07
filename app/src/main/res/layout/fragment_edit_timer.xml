@@ -8,12 +8,14 @@
     tools:context=".ui.edittimer.EditTimerFragment">
 
 
-    <TextView
+    <EditText
         android:id="@+id/timer_name_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/candal"
         android:gravity="center"
+        android:textColor="@color/white"
+        android:inputType="text"
         android:text="Countdown timer"
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,14 +30,14 @@
         android:layout_marginStart="24dp"
         android:text="Repeat:"
         android:textSize="24sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/date_number_text_view"
-        app:layout_constraintEnd_toStartOf="@+id/date_number_text_view"
+        app:layout_constraintBaseline_toBaselineOf="@+id/repeat_times_edit"
+        app:layout_constraintEnd_toStartOf="@+id/repeat_times_edit"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/date_number_text_view"
+        android:id="@+id/repeat_times_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="128dp"
@@ -58,14 +60,14 @@
         android:text="Activity duration:"
         android:textSize="24sp"
 
-        app:layout_constraintBaseline_toBaselineOf="@+id/start_number_text_view"
-        app:layout_constraintEnd_toStartOf="@+id/start_number_text_view"
+        app:layout_constraintBaseline_toBaselineOf="@+id/activity_duration_edit"
+        app:layout_constraintEnd_toStartOf="@+id/activity_duration_edit"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/start_number_text_view"
+        android:id="@+id/activity_duration_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
@@ -78,7 +80,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/activity_duration_text_view"
-        app:layout_constraintTop_toBottomOf="@+id/date_number_text_view" />
+        app:layout_constraintTop_toBottomOf="@+id/repeat_times_edit" />
 
     <TextView
         android:id="@+id/break_duration_text_view"
@@ -88,14 +90,14 @@
         android:text="Break duration:"
         android:textSize="24sp"
 
-        app:layout_constraintBaseline_toBaselineOf="@+id/end_number_text_view"
-        app:layout_constraintEnd_toStartOf="@+id/end_number_text_view"
+        app:layout_constraintBaseline_toBaselineOf="@+id/break_time_duration_edit"
+        app:layout_constraintEnd_toStartOf="@+id/break_time_duration_edit"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/end_number_text_view"
+        android:id="@+id/break_time_duration_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
@@ -108,16 +110,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/break_duration_text_view"
-        app:layout_constraintTop_toBottomOf="@+id/start_number_text_view" />
+        app:layout_constraintTop_toBottomOf="@+id/activity_duration_edit" />
 
     <View
         android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="4dp"
         android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toTopOf="@+id/start_number_text_view"
+        app:layout_constraintBottom_toTopOf="@+id/activity_duration_edit"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/date_number_text_view" />
+        app:layout_constraintTop_toBottomOf="@+id/repeat_times_edit" />
 
     <View
         android:id="@+id/divider2"
@@ -125,9 +127,27 @@
         android:layout_width="match_parent"
         android:layout_height="4dp"
         android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toTopOf="@+id/end_number_text_view"
+        app:layout_constraintBottom_toTopOf="@+id/break_time_duration_edit"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/start_number_text_view" />
+        app:layout_constraintTop_toBottomOf="@+id/activity_duration_edit" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/save_timer_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:backgroundTint="@color/primaryLightColor"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="@string/save_text"
+        android:textColor="@color/colorAccent"
+        app:cornerRadius="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/break_duration_text_view"
+        app:strokeColor="@color/colorAccent"
+        app:strokeWidth="3dp" />
 
 
 

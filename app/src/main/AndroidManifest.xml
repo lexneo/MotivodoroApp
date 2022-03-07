@@ -23,6 +23,8 @@
         </activity>
         <service android:name=".services.StopwatchService"
             android:foregroundServiceType="dataSync"/>
+        <service android:name=".services.CountdownService"
+            android:foregroundServiceType="dataSync"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

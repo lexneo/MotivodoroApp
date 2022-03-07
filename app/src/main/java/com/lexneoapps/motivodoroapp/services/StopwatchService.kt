@@ -153,6 +153,8 @@ class StopwatchService : LifecycleService() {
             .setColor(SingletonProjectAttr.projectColor)
             .setContentTitle(title)
             .setContentText(text)
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setOnlyAlertOnce(true)
             .setContentIntent(
                 PendingIntent.getActivity(
                     this,
@@ -209,11 +211,3 @@ class StopwatchService : LifecycleService() {
     }
 }
 
-object SingletonProjectAttr {
-    var projectName = "StopWatch"
-    var projectColor = -30808
-
-    fun setName(name: String) {
-        this.projectName = name
-    }
-}
