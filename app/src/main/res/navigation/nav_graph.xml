@@ -20,6 +20,10 @@
             android:id="@+id/action_startFragment_to_stopWatchFragment"
             app:destination="@id/stopWatchFragment"
             app:popUpTo="@id/startFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_countDownFragment"
+            app:destination="@id/countDownFragment"
+            app:popUpTo="@id/startFragment" />
     </fragment>
 
     <fragment
@@ -114,4 +118,5 @@
             android:id="@+id/action_countDownFragment_to_projectFragment"
             app:destination="@id/projectFragment" />
     </fragment><action android:id="@+id/action_global_stopWatchFragment" app:destination="@id/stopWatchFragment"/>
+    <action android:id="@+id/action_global_countDownFragment" app:destination="@id/countDownFragment" />
 </navigation>

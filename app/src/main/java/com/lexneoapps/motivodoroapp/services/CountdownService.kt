@@ -47,6 +47,8 @@ class CountdownService : LifecycleService() {
         intent?.action?.let { action ->
             when (action) {
                 CDSERVICESTATE.START_OR_RESUME.name -> {
+                    _isOver.value = false
+
                     startResumeStopWatch()
                     startForeground(
                         NOTIFICATION_ID_CD,
@@ -71,6 +73,9 @@ class CountdownService : LifecycleService() {
 
     private fun startResumeStopWatch() {
         _roundsLeft.value = Countdown.rounds
+        _isStarted.value = true
+        _isOver.value = false
+
 
         timeStartedCD = System.currentTimeMillis()
 
@@ -79,8 +84,10 @@ class CountdownService : LifecycleService() {
 
         timer = lifecycleScope.launch(Dispatchers.Main) {
 
-            var timeToCountdown = Countdown.pomodoro * 1000L * 60L + 1000L
-            if (isBreakMode) timeToCountdown = Countdown.shortBreak * 1000L * 60L + 1000L
+            var timeToCountdown = Countdown.pomodoro * 1000L  + 1000L
+//            var timeToCountdown = Countdown.pomodoro * 1000L * 60L + 1000L
+            if (isBreakMode) timeToCountdown = Countdown.shortBreak * 1000L + 1000L
+//            if (isBreakMode) timeToCountdown = Countdown.shortBreak * 1000L * 60L + 1000L
             val startTimeMillis = System.currentTimeMillis()
             while (_isTrackingCD.value!!) {
 
@@ -190,6 +197,7 @@ class CountdownService : LifecycleService() {
             startResumeStopWatch()
 
         } else {
+
             resetStopWatch()
             stopForeground(true)
             stopSelf()
@@ -198,6 +206,8 @@ class CountdownService : LifecycleService() {
     }
 
     private fun resetStopWatch() {
+        _isStarted.value = false
+        _isOver.value = true
         _isTrackingCD.value = false
         _elapsedMilliSecondsCD.value = 0L
         _elapsedSecondsCD.value = 0L
@@ -315,6 +325,11 @@ class CountdownService : LifecycleService() {
         private var _breakProgress = MutableLiveData(false)
         val breakProgress: LiveData<Boolean> = _breakProgress
 
+        private var _isStarted = MutableLiveData(false)
+        val isStarted : LiveData<Boolean> = _isStarted
+
+         var _isOver = MutableLiveData(false)
+        val isOver : LiveData<Boolean> = _isOver
 
         var timeStartedCD = 0L
         var currentTotaltimeCD = 0L

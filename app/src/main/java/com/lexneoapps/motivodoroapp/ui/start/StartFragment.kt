@@ -2,6 +2,7 @@ package com.lexneoapps.motivodoroapp.ui.start
 
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
@@ -13,6 +14,7 @@ import com.lexneoapps.motivodoroapp.R
 import com.lexneoapps.motivodoroapp.data.SortOrder
 import com.lexneoapps.motivodoroapp.data.project.Project
 import com.lexneoapps.motivodoroapp.databinding.FragmentStartBinding
+import com.lexneoapps.motivodoroapp.services.CountdownService
 import com.lexneoapps.motivodoroapp.services.SingletonProjectAttr
 import com.lexneoapps.motivodoroapp.services.StopwatchService
 import com.lexneoapps.motivodoroapp.ui.adapters.StartAdapter
@@ -115,11 +117,12 @@ class StartFragment : Fragment(R.layout.fragment_start) {
             }
 
             R.id.action_settings -> {
-                TODO()
-
+                Toast.makeText(requireContext(), "Not yet implemented", Toast.LENGTH_SHORT).show()
+                true
             }
             R.id.action_about -> {
-                TODO()
+                Toast.makeText(requireContext(), "Not yet implemented", Toast.LENGTH_SHORT).show()
+                true
             }
 
             else -> super.onOptionsItemSelected(item)
@@ -147,6 +150,23 @@ class StartFragment : Fragment(R.layout.fragment_start) {
                 currentProjectNameTextView.text = SingletonProjectAttr.projectName
                 StopwatchService.elapsedMilliSeconds.observe(viewLifecycleOwner) { elapsedMillis ->
                     currentTimeTextView.text = formatMillisToTimer(elapsedMillis)
+                }
+
+            }
+        } else if (CountdownService.isStarted.value == true && CountdownService.isOver.value == false) {
+            Timber.i("CDSValues ${CountdownService.isTrackingCD.value}" +
+                    " and ${CountdownService.isOver.value}")
+            binding.apply {
+                startGroup.visibility = View.GONE
+                trackingCardView.visibility = View.VISIBLE
+                trackingCardView.setOnClickListener {
+                    val action = StartFragmentDirections.actionStartFragmentToCountDownFragment()
+                    findNavController().navigate(action)
+                }
+                currentProjectLayout.setBackgroundColor(SingletonProjectAttr.projectColor)
+                currentProjectNameTextView.text = SingletonProjectAttr.projectName
+                CountdownService.timeLeftMilliSecondsCD.observe(viewLifecycleOwner) { timeLeft ->
+                    currentTimeTextView.text = formatMillisToTimer(timeLeft)
                 }
 
             }

@@ -11,6 +11,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.lexneoapps.motivodoroapp.R
 import com.lexneoapps.motivodoroapp.databinding.ActivityMainBinding
+import com.lexneoapps.motivodoroapp.other.Constants.ACTION_SHOW_COUNTDOWN_FRAGMENT
 import com.lexneoapps.motivodoroapp.other.Constants.ACTION_SHOW_STOPWATCH_FRAGMENT
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
@@ -67,6 +68,8 @@ class MainActivity : AppCompatActivity() {
     private fun navigateToTrackingFragmentIfNeeded(intent: Intent?) {
         if (intent?.action == ACTION_SHOW_STOPWATCH_FRAGMENT) {
             navController.navigate(R.id.action_global_stopWatchFragment)
+        }else if (intent?.action == ACTION_SHOW_COUNTDOWN_FRAGMENT) {
+            navController.navigate(R.id.action_global_countDownFragment)
         }
     }
 

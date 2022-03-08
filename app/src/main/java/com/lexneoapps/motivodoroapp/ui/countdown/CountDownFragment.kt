@@ -17,6 +17,7 @@ import com.lexneoapps.motivodoroapp.services.CountdownService
 import com.lexneoapps.motivodoroapp.services.SingletonProjectAttr
 import com.lexneoapps.motivodoroapp.util.formatMillisToTimer
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 @AndroidEntryPoint
 class CountDownFragment : Fragment(R.layout.fragment_countdown_timer) {
@@ -83,11 +84,12 @@ class CountDownFragment : Fragment(R.layout.fragment_countdown_timer) {
 
         }
 
-
-
         CountdownService.roundsLeft.observe(viewLifecycleOwner){
             binding.roundsLeftNumberTextView.text = it.toString()
-            if (it == 0){
+        }
+        CountdownService.isOver.observe(viewLifecycleOwner){
+            Timber.i("isOver is $it")
+            if (it == true){
                 Toast.makeText(requireContext(), "Session finished!", Toast.LENGTH_SHORT).show()
                 findNavController().navigateUp()
             }

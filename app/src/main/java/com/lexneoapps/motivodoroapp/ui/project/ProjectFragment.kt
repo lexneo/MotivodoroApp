@@ -54,6 +54,9 @@ class ProjectFragment : Fragment(R.layout.fragment_project) {
         if (StopwatchService.isTracking.value == true || StopwatchService.elapsedMilliSeconds.value!! > 1L) {
             findNavController().navigateUp()
         }
+        if (CountdownService.isStarted.value == true && CountdownService.isOver.value == false) {
+            findNavController().navigateUp()
+        }
 
 /*        binding.startTimerButton.setOnClickListener {
 //            viewModel.updateUIState(SharedViewModel.UIStatesEnum.RECORDING)
@@ -154,6 +157,8 @@ class ProjectFragment : Fragment(R.layout.fragment_project) {
 
 
     private fun startCountdownTimer() {
+        CountdownService._isOver.value = false
+
         commandCDService(CountdownService.CDSERVICESTATE.START_OR_RESUME)
         val action = ProjectFragmentDirections.actionProjectFragmentToCountDownFragment()
         findNavController().navigate(action)
