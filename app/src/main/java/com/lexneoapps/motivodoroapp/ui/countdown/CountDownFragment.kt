@@ -1,8 +1,6 @@
-package com.lexneoapps.motivodoroapp.ui.startandtimer
+package com.lexneoapps.motivodoroapp.ui.countdown
 
-import android.content.Context
 import android.content.Intent
-import android.content.res.Resources
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,17 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.lexneoapps.motivodoroapp.R
 import com.lexneoapps.motivodoroapp.databinding.FragmentCountdownTimerBinding
-import com.lexneoapps.motivodoroapp.databinding.FragmentStopwatchBinding
 import com.lexneoapps.motivodoroapp.services.Countdown
 import com.lexneoapps.motivodoroapp.services.CountdownService
 import com.lexneoapps.motivodoroapp.services.SingletonProjectAttr
-import com.lexneoapps.motivodoroapp.services.StopwatchService
 import com.lexneoapps.motivodoroapp.util.formatMillisToTimer
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -32,7 +26,6 @@ class CountDownFragment : Fragment(R.layout.fragment_countdown_timer) {
 //    val args: TimerFragmentArgs by navArgs()
 
 
-    private val viewModel: SharedViewModel by viewModels()
 
     // This property is only valid between onCreateView and
 // onDestroyView.

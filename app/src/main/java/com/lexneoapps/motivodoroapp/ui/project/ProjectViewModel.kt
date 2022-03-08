@@ -1,4 +1,4 @@
-package com.lexneoapps.motivodoroapp.ui.startandtimer
+package com.lexneoapps.motivodoroapp.ui.project
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
@@ -10,10 +10,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ProjectViewModel @Inject constructor(
-    private val projectDao: ProjectDao,
-    private val cdTimerDao: CDTimerDao
+    cdTimerDao: CDTimerDao
 ) : ViewModel() {
 
-    //cdtimer1
+
     val cdTimers = cdTimerDao.getTimers().asLiveData()
 }

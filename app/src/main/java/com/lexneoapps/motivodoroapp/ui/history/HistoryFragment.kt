@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.lexneoapps.motivodoroapp.R
 import com.lexneoapps.motivodoroapp.databinding.FragmentHistoryBinding
 import com.lexneoapps.motivodoroapp.ui.adapters.HistoryAdapter
-import com.lexneoapps.motivodoroapp.ui.startandtimer.SharedViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
@@ -25,7 +24,7 @@ class HistoryFragment : Fragment(R.layout.fragment_history) {
 
     private var _binding: FragmentHistoryBinding? = null
 
-    private val viewModel: SharedViewModel by viewModels()
+    private val viewModel: HistoryViewModel by viewModels()
 
     // This property is only valid between onCreateView and
 // onDestroyView.

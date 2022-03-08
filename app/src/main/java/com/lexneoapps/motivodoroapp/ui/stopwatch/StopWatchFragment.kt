@@ -1,4 +1,4 @@
-package com.lexneoapps.motivodoroapp.ui.startandtimer
+package com.lexneoapps.motivodoroapp.ui.stopwatch
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.lexneoapps.motivodoroapp.R
 import com.lexneoapps.motivodoroapp.databinding.FragmentStopwatchBinding
@@ -22,8 +21,6 @@ class StopWatchFragment : Fragment(R.layout.fragment_stopwatch) {
 
 //    val args: TimerFragmentArgs by navArgs()
 
-
-    private val viewModel: SharedViewModel by viewModels()
 
     // This property is only valid between onCreateView and
 // onDestroyView.
@@ -49,23 +46,26 @@ class StopWatchFragment : Fragment(R.layout.fragment_stopwatch) {
 
     override fun onResume() {
         super.onResume()
-        binding.stopImageButton.isEnabled = !StopwatchService.isTracking.value!! && StopwatchService.elapsedMilliSeconds.value!! != 0L
+        binding.stopImageButton.isEnabled =
+            !StopwatchService.isTracking.value!! && StopwatchService.elapsedMilliSeconds.value!! != 0L
     }
 
-    private fun setupViews(){
+    private fun setupViews() {
         binding.projectTitle.text = SingletonProjectAttr.projectName
-        StopwatchService.isTracking.observe(viewLifecycleOwner){ isTracking ->
+        StopwatchService.isTracking.observe(viewLifecycleOwner) { isTracking ->
             binding.playImageButton.isEnabled = !isTracking
             binding.pauseImageButton.isEnabled = isTracking
-            binding.stopImageButton.isEnabled = !isTracking && StopwatchService.elapsedMilliSeconds.value!! != 0L
+            binding.stopImageButton.isEnabled =
+                !isTracking && StopwatchService.elapsedMilliSeconds.value!! != 0L
         }
-        StopwatchService.elapsedMilliSeconds.observe(viewLifecycleOwner){ elapsedMillis ->
+        StopwatchService.elapsedMilliSeconds.observe(viewLifecycleOwner) { elapsedMillis ->
             binding.stopwatchTextView.text = formatMillisToTimer(elapsedMillis)
-            binding.stopImageButton.isEnabled = !StopwatchService.isTracking.value!! && elapsedMillis != 0L
+            binding.stopImageButton.isEnabled =
+                !StopwatchService.isTracking.value!! && elapsedMillis != 0L
         }
     }
 
-    private fun setupListeners(){
+    private fun setupListeners() {
         binding.playImageButton.setOnClickListener {
             commandService(StopwatchService.SERVICESTATE.START_OR_RESUME)
         }
@@ -75,24 +75,19 @@ class StopWatchFragment : Fragment(R.layout.fragment_stopwatch) {
         binding.stopImageButton.setOnClickListener {
 
 
-
             commandService(StopwatchService.SERVICESTATE.RESET)
             val action = StopWatchFragmentDirections.actionStopWatchFragmentToProjectFragment()
             findNavController().navigate(action)
         }
     }
 
-    private fun commandService(servicestate: StopwatchService.SERVICESTATE){
+    private fun commandService(servicestate: StopwatchService.SERVICESTATE) {
         context?.let { context ->
-            val intent = Intent(context,StopwatchService::class.java)
+            val intent = Intent(context, StopwatchService::class.java)
             intent.action = servicestate.name
             context.startService(intent)
         }
     }
-
-
-
-
 
 
     override fun onDestroyView() {

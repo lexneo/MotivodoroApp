@@ -1,4 +1,4 @@
-package com.lexneoapps.motivodoroapp.ui.startandtimer
+package com.lexneoapps.motivodoroapp.ui.project
 
 import android.content.Intent
 import android.os.Bundle

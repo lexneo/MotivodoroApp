@@ -1,7 +1,6 @@
 package com.lexneoapps.motivodoroapp.ui.edittimer
 
 import android.os.Bundle
-import android.text.style.TtsSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +11,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.lexneoapps.motivodoroapp.R
 import com.lexneoapps.motivodoroapp.databinding.FragmentEditTimerBinding
-import com.lexneoapps.motivodoroapp.ui.startandtimer.ProjectViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 

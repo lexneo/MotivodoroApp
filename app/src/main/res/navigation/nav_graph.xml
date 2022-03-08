@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/startFragment"
-        android:name="com.lexneoapps.motivodoroapp.ui.startandtimer.StartFragment"
+        android:name="com.lexneoapps.motivodoroapp.ui.start.StartFragment"
         android:label="StartFragment"
         tools:layout="@layout/fragment_start" >
         <action
@@ -65,7 +65,7 @@
     </fragment>
     <fragment
         android:id="@+id/stopWatchFragment"
-        android:name="com.lexneoapps.motivodoroapp.ui.startandtimer.StopWatchFragment"
+        android:name="com.lexneoapps.motivodoroapp.ui.stopwatch.StopWatchFragment"
         android:label="fragment_recording"
         tools:layout="@layout/fragment_stopwatch" >
         <action
@@ -75,7 +75,7 @@
     </fragment>
     <fragment
         android:id="@+id/projectFragment"
-        android:name="com.lexneoapps.motivodoroapp.ui.startandtimer.ProjectFragment"
+        android:name="com.lexneoapps.motivodoroapp.ui.project.ProjectFragment"
         android:label="fragment_project"
         tools:layout="@layout/fragment_project" >
         <action
@@ -107,7 +107,7 @@
     </fragment>
     <fragment
         android:id="@+id/countDownFragment"
-        android:name="com.lexneoapps.motivodoroapp.ui.startandtimer.CountDownFragment"
+        android:name="com.lexneoapps.motivodoroapp.ui.countdown.CountDownFragment"
         android:label="fragment_countdown_timer"
         tools:layout="@layout/fragment_countdown_timer" >
         <action

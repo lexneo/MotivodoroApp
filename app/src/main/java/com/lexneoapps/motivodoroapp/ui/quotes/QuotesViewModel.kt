@@ -1,4 +1,4 @@
-package com.lexneoapps.motivodoroapp.ui.viewmodels
+package com.lexneoapps.motivodoroapp.ui.quotes
 
 import androidx.lifecycle.ViewModel
 import com.lexneoapps.motivodoroapp.data.project.ProjectDao
@@ -8,7 +8,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class StatsAndQuotesViewModel @Inject constructor(
+class QuotesViewModel @Inject constructor(
     private val projectDao: ProjectDao,
     private val quoteDao: QuoteDao,
     private val recordDao: RecordDao

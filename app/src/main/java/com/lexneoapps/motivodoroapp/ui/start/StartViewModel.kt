@@ -1,4 +1,4 @@
-package com.lexneoapps.motivodoroapp.ui.startandtimer
+package com.lexneoapps.motivodoroapp.ui.start
 
 import androidx.lifecycle.*
 import com.lexneoapps.motivodoroapp.data.cdtimer.CDTimerDao
@@ -17,7 +17,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class SharedViewModel @Inject constructor(
+class StartViewModel @Inject constructor(
     private val preferencesManager: PreferencesManager,
     private val projectDao: ProjectDao,
     private val cdTimerDao: CDTimerDao,
@@ -90,7 +90,6 @@ class SharedViewModel @Inject constructor(
 
     val projects = projectFlow.asLiveData()
 
-    val getRecords = recordDao.getRecords().asLiveData()
 
     fun onSortOrderSelected(sortOrder: SortOrder) = viewModelScope.launch {
         preferencesManager.updateSortOrder(sortOrder)

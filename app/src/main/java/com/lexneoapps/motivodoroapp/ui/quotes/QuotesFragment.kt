@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.lexneoapps.motivodoroapp.R
 import com.lexneoapps.motivodoroapp.databinding.FragmentQuotesBinding
-import com.lexneoapps.motivodoroapp.ui.viewmodels.StatsAndQuotesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -17,7 +16,7 @@ class QuotesFragment : Fragment(R.layout.fragment_quotes) {
 
     private var _binding: FragmentQuotesBinding? = null
 
-    private val viewModel: StatsAndQuotesViewModel by viewModels()
+    private val viewModel: QuotesViewModel by viewModels()
 
     // This property is only valid between onCreateView and
 // onDestroyView.
