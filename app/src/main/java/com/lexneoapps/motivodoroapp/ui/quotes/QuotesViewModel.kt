@@ -1,16 +1,34 @@
 package com.lexneoapps.motivodoroapp.ui.quotes
 
-import androidx.lifecycle.ViewModel
-import com.lexneoapps.motivodoroapp.data.project.ProjectDao
+import androidx.lifecycle.*
+import com.lexneoapps.motivodoroapp.data.quote.Quote
 import com.lexneoapps.motivodoroapp.data.quote.QuoteDao
-import com.lexneoapps.motivodoroapp.data.record.RecordDao
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
 class QuotesViewModel @Inject constructor(
-    private val projectDao: ProjectDao,
-    private val quoteDao: QuoteDao,
-    private val recordDao: RecordDao
+    private val quoteDao: QuoteDao
 ) : ViewModel() {
+
+
+    val unlockedQuotes = quoteDao.getUnlockedQuotes().asLiveData()
+    val all = quoteDao.getAll().asLiveData()
+    val favoriteQuotes = quoteDao.getFavoriteQuotes().asLiveData()
+
+
+    private var _numberOfUnlockedQuotes = MutableLiveData<Int>()
+    val numberOfUnlockedQuotes: LiveData<Int> = _numberOfUnlockedQuotes
+
+
+
+    fun setFavorite(currentQuote: Quote, isFavorite: Boolean) =
+        viewModelScope.launch {
+            Timber.i("isSFavorite is $isFavorite")
+            quoteDao.updateQuote(currentQuote.copy(favorite = isFavorite))
+        }
+
+
 }

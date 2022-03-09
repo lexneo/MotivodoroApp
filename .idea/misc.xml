@@ -5,6 +5,10 @@
       <map>
         <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/drawable/bottom_nav_selector.xml" value="0.403125" />
         <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/drawable/circle_shape.xml" value="0.403125" />
+        <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/drawable/favorite_button_selector.xml" value="0.217" />
+        <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/drawable/favorite_selector.xml" value="0.2685" />
+        <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/drawable/favorite_selector_try1.xml" value="0.1" />
+        <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.2685" />
         <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.403125" />
         <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout-v28/fragment_timer.xml" value="0.21875" />
         <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout/activity_main.xml" value="0.33" />
@@ -19,7 +23,7 @@
         <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout/fragment_history.xml" value="0.2848731884057971" />
         <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout/fragment_project.xml" value="0.22950819672131148" />
         <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout/fragment_project_statistics.xml" value="0.2444078947368421" />
-        <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout/fragment_quotes.xml" value="0.33" />
+        <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout/fragment_quotes.xml" value="0.25" />
         <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout/fragment_record.xml" value="0.2444078947368421" />
         <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout/fragment_recording.xml" value="0.25" />
         <entry key="..\:/Users/BracaMarinkovic/AndroidStudioProjects/MotivodoroApp/app/src/main/res/layout/fragment_recording_time.xml" value="0.2444078947368421" />

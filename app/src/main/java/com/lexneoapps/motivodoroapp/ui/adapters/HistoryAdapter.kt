@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.lexneoapps.motivodoroapp.R
+import com.lexneoapps.motivodoroapp.data.project.Project
 import com.lexneoapps.motivodoroapp.data.record.Record
 import com.lexneoapps.motivodoroapp.databinding.HistoryItemBinding
 import timber.log.Timber
@@ -30,19 +31,12 @@ class HistoryAdapter(val context: Context) :
         fun bind(record: Record) {
             binding.apply {
                 projectNameTextView.text = record.projectName
-//                viewProjectColor.background = record.projectColor.toDrawable()
                 timeStartedTextView.text = record.startTimeFormattedTime
                 timeEndedTextView.text = record.endTimeTimeFormattedTime
                 totalTimeTextView.text = record.totalTimeFormatted
                 dateTextView.text = record.startTimeFormattedDate
 
-             /*   projectNameTextView.text = record.projectName
-                startTimeTextView.text = record.startTimeFormattedTime
-                endTimeTextView.text = record.endTimeTimeFormattedTime
 
-
-                totalTimeTextView.text = record.totaltimeFormatedTry2
-                dateTextView.text = record.startTimeFormattedDate*/
 
 
             }
