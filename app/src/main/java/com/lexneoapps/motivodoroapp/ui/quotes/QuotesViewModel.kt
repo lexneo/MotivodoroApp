@@ -15,7 +15,7 @@ class QuotesViewModel @Inject constructor(
 
 
     val unlockedQuotes = quoteDao.getUnlockedQuotes().asLiveData()
-    val all = quoteDao.getAll().asLiveData()
+
     val favoriteQuotes = quoteDao.getFavoriteQuotes().asLiveData()
 
 

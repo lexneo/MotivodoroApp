@@ -14,6 +14,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.lifecycleScope
 import com.lexneoapps.motivodoroapp.R
 import com.lexneoapps.motivodoroapp.app.MainActivity
+import com.lexneoapps.motivodoroapp.data.project.ProjectDao
 import com.lexneoapps.motivodoroapp.data.record.Record
 import com.lexneoapps.motivodoroapp.data.record.RecordDao
 import com.lexneoapps.motivodoroapp.other.Constants
@@ -33,6 +34,9 @@ class StopwatchService : LifecycleService() {
 
     @Inject
     lateinit var recordDao: RecordDao
+
+    @Inject
+    lateinit var projectDao: ProjectDao
 
 
     override fun onCreate() {
@@ -97,7 +101,13 @@ class StopwatchService : LifecycleService() {
                     SingletonProjectAttr.projectColor
                 )
             )
+            val project = projectDao.getProjectById(SingletonProjectAttr.projectId)
+            val addedTotalTime = project.totalTime + totalTime
+            projectDao.updateProject(
+                project.copy(totalTime = addedTotalTime,lastRecord = CountdownService.timeEndedCD  )
+            )
         }
+
         _isTracking.value = false
         elapsedMillisBeforePause = _elapsedMilliSeconds.value!!
         notificationManager.notify(

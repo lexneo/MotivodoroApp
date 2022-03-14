@@ -10,4 +10,8 @@ object Constants {
 
     const val ACTION_SHOW_COUNTDOWN_FRAGMENT = "ACTION_SHOW_COUNTDOWN_FRAGMENT"
 
+    const val THE_QUOTE_KEY = "THE_QUOTE_KEY"
+
+    const val THE_QUOTE_ID = "THE_QUOTE_ID"
+
 }

@@ -35,7 +35,7 @@
         app:cardUseCompatPadding="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.8"
+        app:layout_constraintHeight_percent="0.7"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.38">
@@ -43,8 +43,8 @@
 
         <View
             android:id="@+id/favorited_image_button"
-
             android:layout_width="48dp"
+            android:elevation="3dp"
             android:layout_height="48dp"
             android:layout_gravity="end|top"
             android:background="@drawable/ic_baseline_favorite_24"
@@ -52,9 +52,10 @@
             android:clickable="true"
             android:contentDescription="@string/quote_favorite_image_button_text"
             android:focusable="true"
-
             android:hapticFeedbackEnabled="true" />
-
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -62,6 +63,7 @@
             android:background="@color/primaryColor"
             android:orientation="vertical"
             android:padding="10dp">
+
 
             <TextView
                 android:id="@+id/quote_text_view"
@@ -82,6 +84,7 @@
 
 
         </LinearLayout>
+        </ScrollView>
 
 
     </com.google.android.material.card.MaterialCardView>

@@ -30,6 +30,7 @@ class StartAdapter() :
         holder.binding.apply {
             linearLayout.setBackgroundColor(currentProject.color)
             projectNameTextView.text = currentProject.name
+            projectTotalTimeTextView.text = currentProject.totalTimeFormatted
             root.setOnClickListener {
                 onItemClickListener?.let { click ->
                     click(currentProject)

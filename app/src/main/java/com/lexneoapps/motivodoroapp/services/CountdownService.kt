@@ -15,6 +15,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.lifecycleScope
 import com.lexneoapps.motivodoroapp.R
 import com.lexneoapps.motivodoroapp.app.MainActivity
+import com.lexneoapps.motivodoroapp.data.project.Project
+import com.lexneoapps.motivodoroapp.data.project.ProjectDao
 import com.lexneoapps.motivodoroapp.data.record.Record
 import com.lexneoapps.motivodoroapp.data.record.RecordDao
 import com.lexneoapps.motivodoroapp.other.Constants
@@ -35,6 +37,9 @@ class CountdownService : LifecycleService() {
 
     @Inject
     lateinit var recordDao: RecordDao
+
+    @Inject
+    lateinit var projectDao: ProjectDao
 
 
     override fun onCreate() {
@@ -84,7 +89,7 @@ class CountdownService : LifecycleService() {
 
         timer = lifecycleScope.launch(Dispatchers.Main) {
 
-            var timeToCountdown = Countdown.pomodoro * 1000L  + 1000L
+            var timeToCountdown = Countdown.pomodoro * 1000L + 1000L
 //            var timeToCountdown = Countdown.pomodoro * 1000L * 60L + 1000L
             if (isBreakMode) timeToCountdown = Countdown.shortBreak * 1000L + 1000L
 //            if (isBreakMode) timeToCountdown = Countdown.shortBreak * 1000L * 60L + 1000L
@@ -121,14 +126,12 @@ class CountdownService : LifecycleService() {
                     _timeLeftInSecondsCD.postValue(leftSeconds)
 
 
-
                 }
 
                 if (this.isActive) {
                     delay(50)
 
                 }
-
 
 
             }
@@ -149,6 +152,12 @@ class CountdownService : LifecycleService() {
                         SingletonProjectAttr.projectColor
                     )
                 )
+                val project = projectDao.getProjectById(SingletonProjectAttr.projectId)
+                val addedTotalTime = project.totalTime + totalTime
+                projectDao.updateProject(
+                    project.copy(totalTime = addedTotalTime, lastRecord = timeEndedCD)
+                )
+
             }
         }
     }
@@ -221,7 +230,7 @@ class CountdownService : LifecycleService() {
     private fun setupNotification(string: String) {
         notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
-         _timeLeftInSecondsCD.observe(this) { timeLeftSeconds ->
+        _timeLeftInSecondsCD.observe(this) { timeLeftSeconds ->
             if (_isTrackingCD.value!!) {
                 if (isBreakMode) {
                     notificationManager.notify(
@@ -326,10 +335,10 @@ class CountdownService : LifecycleService() {
         val breakProgress: LiveData<Boolean> = _breakProgress
 
         private var _isStarted = MutableLiveData(false)
-        val isStarted : LiveData<Boolean> = _isStarted
+        val isStarted: LiveData<Boolean> = _isStarted
 
-         var _isOver = MutableLiveData(false)
-        val isOver : LiveData<Boolean> = _isOver
+        var _isOver = MutableLiveData(false)
+        val isOver: LiveData<Boolean> = _isOver
 
         var timeStartedCD = 0L
         var currentTotaltimeCD = 0L
@@ -345,14 +354,12 @@ class CountdownService : LifecycleService() {
 }
 
 
-
-
-object Countdown{
+object Countdown {
     var pomodoro = 25
     var rounds = 4
     var shortBreak = 5
 
-    fun setCountDown(pomodoro: Int,rounds: Int,shortBreak: Int){
+    fun setCountDown(pomodoro: Int, rounds: Int, shortBreak: Int) {
         this.pomodoro = pomodoro
         this.rounds = rounds
         this.shortBreak = shortBreak

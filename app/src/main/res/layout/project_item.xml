@@ -38,16 +38,17 @@
             android:textSize="24sp" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/current_time_text_view"
+            android:id="@+id/project_total_time_text_view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_weight="1"
+            android:gravity="end"
             android:fontFamily="@font/candal"
             android:shadowColor="@color/black"
             android:shadowRadius="4"
             android:text="23:45"
-            android:textSize="36sp"
+            android:textSize="18sp"
             tools:visibility="invisible" />
 
     </LinearLayout>

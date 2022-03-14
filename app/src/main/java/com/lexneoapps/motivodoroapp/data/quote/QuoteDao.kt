@@ -22,7 +22,7 @@ interface QuoteDao {
     fun getUnlockedQuotes() : Flow<List<Quote>>
 
     @Query("SELECT * FROM quote_table")
-    fun getAll() : Flow<List<Quote>>
+    suspend fun getAll() : List<Quote>
 
 
     @Query("SELECT * FROM quote_table WHERE favorite = 1")

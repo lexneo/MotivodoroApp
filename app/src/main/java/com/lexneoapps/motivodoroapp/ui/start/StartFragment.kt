@@ -184,7 +184,7 @@ class StartFragment : Fragment(R.layout.fragment_start) {
         layoutManager = LinearLayoutManager(this@StartFragment.requireContext())
         setHasFixedSize(true)
         startAdapter.setOnItemClickListener {
-            SingletonProjectAttr.setAttributes(it.name, it.color)
+            SingletonProjectAttr.setAttributes(it.name, it.color,it.id)
             findNavController().navigate(StartFragmentDirections.actionStartFragmentToProjectFragment())
         }
 
