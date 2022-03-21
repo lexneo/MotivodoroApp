@@ -51,6 +51,7 @@ class ProjectFragment : Fragment(R.layout.fragment_project) {
         super.onViewCreated(view, savedInstanceState)
         subscribeToObservers()
         setUpBinding()
+        setUpListeners()
         if (StopwatchService.isTracking.value == true || StopwatchService.elapsedMilliSeconds.value!! > 1L) {
             findNavController().navigateUp()
         }
@@ -148,6 +149,13 @@ class ProjectFragment : Fragment(R.layout.fragment_project) {
             }
         }
 
+    }
+
+    private fun setUpListeners(){
+        binding.editProjectButton.setOnClickListener {
+            val action = ProjectFragmentDirections.actionProjectFragmentToEditProjectFragment()
+            findNavController().navigate(action)
+        }
     }
 
     private fun editTimer(id: Int) {

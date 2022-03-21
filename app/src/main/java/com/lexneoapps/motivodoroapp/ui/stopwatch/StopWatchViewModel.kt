@@ -28,8 +28,7 @@ class StopWatchViewModel @Inject constructor(
     private var _vmInitialized = MutableLiveData<Boolean>()
     val vmInitialized: LiveData<Boolean> = _vmInitialized
 
-    private var _firstOpeningOfFragment = MutableLiveData(0)
-    val firstOpeningOfFragment: LiveData<Int> = _firstOpeningOfFragment
+
 
     init {
         viewModelScope.launch {
@@ -43,7 +42,7 @@ class StopWatchViewModel @Inject constructor(
 
 
 
-            _firstOpeningOfFragment.value = _firstOpeningOfFragment.value?.plus(1)
+
         }
     }
 
@@ -65,11 +64,7 @@ class StopWatchViewModel @Inject constructor(
 
 
 
-    fun setToFirstOpen(isTrue: Boolean) {
-        viewModelScope.launch(Dispatchers.IO) {
-            preferencesManager.isFirstOpen(isTrue)
-        }
-    }
+
 
     private var _randomQuote = MutableLiveData<Quote>()
     val randomQuote: LiveData<Quote> = _randomQuote

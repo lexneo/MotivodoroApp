@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.createproject.CreateProjectFragment">
+    tools:context=".ui.editproject.EditProjectFragment">
 
 
     <TextView
         android:id="@+id/create_project_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/create_new_project_text"
+        android:text="@string/edit_project"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -107,14 +107,23 @@
 
 
     <Button
-        android:id="@+id/createBtn"
+        android:id="@+id/save_changes_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Create"
+        android:text="@string/save_changes_text"
         app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
+    <Button
+        android:id="@+id/delete_project_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/delete_project_text"
+        app:layout_constraintEnd_toEndOf="@+id/save_changes_button"
+        app:layout_constraintStart_toStartOf="@+id/save_changes_button"
+        app:layout_constraintTop_toBottomOf="@+id/save_changes_button" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

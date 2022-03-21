@@ -11,7 +11,8 @@
     <string name="resume_stopwatch">Resume</string>
     <string name="x">x</string>
     <string name="save_text">save changes</string>
-    <string name="start_timer_text">Start Timer</string>
+    <string name="start_timer_text">stopwatch</string>
+    <string name="edit_project_text">edit</string>
     <string name="rounds_left">Rounds left: </string>
     <string name="first_quote">Wait for timer to finish</string>
     <string name="first_quote_al">Infuse your life with action. Don\'t wait for it to happen. Make it happen. Make your own future. Make your own hope. Make your own love. And whatever your beliefs, honor your creator, not by passively waiting for grace to come down from upon high, but by doing what you can to make grace happen… yourself, right now, right down here on Earth. Bradley WhitfordMake it happen. Make your own future. Make your own hope. Make your own love. And whatever your beliefs, honor your creator, not by passively waiting for grace to come down from upon high, but by doing what you can to make grace happen… yourself, right now, right down here on Earth. Bradley Whitford  </string>
@@ -31,4 +32,7 @@
     <string name="project_name_text">project name</string>
     <string name="unlocked_and_total_quotes">%1$s/%2$s</string>
     <string name="minus">-</string>
+    <string name="edit_project">EDIT PROJECT</string>
+    <string name="save_changes_text">save changes</string>
+    <string name="delete_project_text">delete project</string>
 </resources>

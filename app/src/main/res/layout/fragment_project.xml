@@ -23,11 +23,29 @@
         android:fontFamily="@font/candal"
         android:textAppearance="@style/TextAppearance.Material3.HeadlineLarge"
         android:textColor="@color/white"
-
+        app:layout_goneMarginStart="8dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         tools:text="Android" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/edit_project_button"
+        android:layout_marginEnd="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:backgroundTint="@color/primaryDarkColor"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="@string/edit_project_text"
+        android:textColor="@color/colorAccent"
+        app:cornerRadius="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/colorAccent"
+        app:strokeWidth="3dp" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/timer_card_view1"
