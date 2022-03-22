@@ -26,6 +26,9 @@ interface ProjectDao {
     @Query("SELECT * FROM project_table WHERE id =:id")
     suspend fun getProjectById(id: Int): Project
 
+    @Query("SELECT * FROM project_table")
+    fun getAllProjects(): Flow<List<Project>>
+
 /*    @Query("SELECT * FROM project_table")
     suspend fun listProjects() : List<Project>*/
 

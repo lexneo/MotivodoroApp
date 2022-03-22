@@ -105,6 +105,10 @@ dependencies {
     implementation 'com.jakewharton.timber:timber:5.0.1'
     // Color Picker Dialog
     implementation "com.github.skydoves:colorpickerview:2.2.4"
+
+    //MPAndroidChart
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
 }
 kapt {
     correctErrorTypes true
